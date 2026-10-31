@@ -353,7 +353,6 @@ export const demosData: DemoItem[] = [
     defaultPlanId: 'pequena',
     order: 4,
     accentColor: '#9333ea',
-    coverImage: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1200&q=80',
     tags: ['uñas', 'nail bar', 'manicura', 'pedicura', 'estética', 'polygel', 'pestañas'],
     practicalBenefits: [
       'Disminuye el tiempo que tu personal dedica a enviar fotos de diseños por mensaje privado.',
@@ -434,7 +433,6 @@ export const demosData: DemoItem[] = [
     defaultPlanId: 'pequena',
     order: 5,
     accentColor: '#1e40af',
-    coverImage: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1200&q=80',
     tags: ['taller mecánico', 'diagnóstico automotriz', 'cambio de aceite', 'frenos', 'suspensión', 'vehículos'],
     practicalBenefits: [
       'Vence la desconfianza natural del conductor mostrando instalaciones ordenadas y personal identificado.',
@@ -515,7 +513,6 @@ export const demosData: DemoItem[] = [
     defaultPlanId: 'pequena',
     order: 6,
     accentColor: '#ea580c',
-    coverImage: 'https://images.unsplash.com/photo-1581783342308-f792dbdd27c5?auto=format&fit=crop&w=1200&q=80',
     tags: ['ferretería', 'materiales de construcción', 'herramientas', 'pintura', 'plomería', 'cemento', 'flete'],
     practicalBenefits: [
       'Capta pedidos de obra grandes que se deciden por rapidez de cotización y despacho.',
@@ -596,7 +593,6 @@ export const demosData: DemoItem[] = [
     defaultPlanId: 'pequena',
     order: 7,
     accentColor: '#3b82f6',
-    coverImage: 'https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=1200&q=80',
     tags: ['repuestos', 'autopartes', 'chasis', 'talleres', 'vehículos', 'piezas', 'envíos nacionales'],
     practicalBenefits: [
       'Ahorra tiempo a tus vendedores al recibir solicitudes con marca, año y foto ya listos.',
@@ -677,7 +673,6 @@ export const demosData: DemoItem[] = [
     defaultPlanId: 'basico',
     order: 8,
     accentColor: '#d97706',
-    coverImage: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1200&q=80',
     tags: ['electricista', 'cortocircuitos', 'energía solar', 'bombas de agua', 'cableado', 'emergencias eléctricas'],
     practicalBenefits: [
       'Da seguridad a familias de contratar a un profesional verificado para entrar a su hogar.',
@@ -758,7 +753,6 @@ export const demosData: DemoItem[] = [
     defaultPlanId: 'mediana',
     order: 9,
     accentColor: '#059669',
-    coverImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
     tags: ['bienes raíces', 'inmobiliaria', 'apartamentos', 'villas', 'punta cana', 'airbnb', 'inversión'],
     practicalBenefits: [
       'Genera confianza en compradores extranjeros y locales con una presentación de alta gama.',
@@ -840,7 +834,6 @@ export const demosData: DemoItem[] = [
     defaultPlanId: 'pequena',
     order: 10,
     accentColor: '#0891b2',
-    coverImage: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80',
     tags: ['airbnb', 'villas turísticas', 'alojamiento', 'jarabacoa', 'las terrenas', 'vacaciones', 'reservas'],
     practicalBenefits: [
       'Ahorra entre un 15% y 20% en comisiones de plataformas atrayendo reservas directas.',
@@ -921,7 +914,6 @@ export const demosData: DemoItem[] = [
     defaultPlanId: 'pequena',
     order: 11,
     accentColor: '#dc2626',
-    coverImage: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80',
     tags: ['restaurante', 'cafetería', 'menú digital', 'delivery', 'comida', 'gastronomía', 'reserva de mesas'],
     practicalBenefits: [
       'Evita que los clientes tengan que descargar molestos archivos PDF lentos en sus celulares.',
@@ -1002,7 +994,6 @@ export const demosData: DemoItem[] = [
     defaultPlanId: 'pequena',
     order: 12,
     accentColor: '#0284c7',
-    coverImage: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1200&q=80',
     tags: ['transporte turístico', 'transfers', 'aeropuerto', 'excursiones', 'saona', 'punta cana', 'chofer privado'],
     practicalBenefits: [
       'Capta turistas antes de que aterricen en el país ofreciendo reservas previas confiables.',

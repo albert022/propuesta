@@ -78,11 +78,14 @@ export const DemoPreviewCardGraphic: React.FC<DemoPreviewCardGraphicProps> = ({
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-slate-950/40 pointer-events-none" />
         </>
       ) : (
-        <div
-          className={`absolute inset-0 bg-gradient-to-br ${
-            currentVariant.previewGradient || 'from-slate-800 to-slate-950'
-          }`}
-        />
+        <>
+          <div
+            className={`absolute inset-0 bg-gradient-to-br ${
+              currentVariant.previewGradient || 'from-slate-800 to-slate-950'
+            }`}
+          />
+          <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
+        </>
       )}
 
       {/* Realistic Mini Browser Top Bar */}

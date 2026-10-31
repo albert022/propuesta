@@ -11,6 +11,7 @@ function createSectorVariants(data: {
     status?: 'disponible' | 'proximamente';
     demoUrl?: string;
     previewGradient?: string;
+    coverImage?: string;
   };
   pequena: {
     tagline: string;
@@ -19,6 +20,7 @@ function createSectorVariants(data: {
     status?: 'disponible' | 'proximamente';
     demoUrl?: string;
     previewGradient?: string;
+    coverImage?: string;
   };
   mediana: {
     tagline: string;
@@ -27,6 +29,7 @@ function createSectorVariants(data: {
     status?: 'disponible' | 'proximamente';
     demoUrl?: string;
     previewGradient?: string;
+    coverImage?: string;
   };
 }): Record<PlanId, SectorPlanVariant> {
   return {
@@ -44,6 +47,7 @@ function createSectorVariants(data: {
       status: data.basico.status || 'disponible',
       demoUrl: data.basico.demoUrl,
       previewGradient: data.basico.previewGradient || 'from-blue-600 to-cyan-600',
+      coverImage: data.basico.coverImage,
       badge: 'Inicio Ágil',
     },
     pequena: {
@@ -60,6 +64,7 @@ function createSectorVariants(data: {
       status: data.pequena.status || 'disponible',
       demoUrl: data.pequena.demoUrl,
       previewGradient: data.pequena.previewGradient || 'from-blue-700 to-indigo-800',
+      coverImage: data.pequena.coverImage,
       badge: 'Más Popular',
     },
     mediana: {
@@ -76,6 +81,7 @@ function createSectorVariants(data: {
       status: data.mediana.status || 'proximamente',
       demoUrl: data.mediana.demoUrl,
       previewGradient: data.mediana.previewGradient || 'from-slate-900 to-blue-950',
+      coverImage: data.mediana.coverImage,
       badge: 'Escala y Máxima Personalización',
     },
   };
@@ -96,6 +102,7 @@ export const demosData: DemoItem[] = [
     defaultPlanId: 'basico',
     order: 1,
     accentColor: '#0284c7',
+    coverImage: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1200&q=80',
     tags: ['aire acondicionado', 'inversores', 'climatización', 'técnicos', 'mantenimiento', 'emergencias'],
     practicalBenefits: [
       'Reduce hasta un 70% las llamadas repetitivas sobre qué servicios realizas y en qué zonas trabajas.',
@@ -109,7 +116,7 @@ export const demosData: DemoItem[] = [
     ],
     variants: createSectorVariants({
       basico: {
-        tagline: 'Presencia ágil de 1 a 3 secciones para técnicos independientes y emergencias rápidas.',
+        tagline: 'Presencia ágil de 1 a 3 secciones para técnicos independientes y emergencias rápidas (ClimaVolt RD).',
         features: [
           'Línea de emergencia visible para fallas de climatización',
           'Catálogo resumen de mantenimiento preventivo y correctivo',
@@ -118,6 +125,7 @@ export const demosData: DemoItem[] = [
         recommendedPages: ['Inicio con Hero de Urgencias', 'Resumen de Servicios y Tarifas', 'Contacto y Cobertura'],
         status: 'disponible',
         demoUrl: 'https://climavolt-servicios-rd.asay2297.workers.dev',
+        coverImage: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1200&q=80',
       },
       pequena: {
         tagline: 'Web completa de 5 a 8 páginas para empresas de servicio técnico consolidado.',
@@ -179,6 +187,7 @@ export const demosData: DemoItem[] = [
     defaultPlanId: 'basico',
     order: 2,
     accentColor: '#d97706',
+    coverImage: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1200&h=630&q=85',
     tags: ['barbería', 'cortes de cabello', 'barba', 'cuidado masculino', 'fade', 'turnos'],
     practicalBenefits: [
       'Elimina el caos de turnos y llamadas continuas durante las horas más concurridas.',
@@ -192,7 +201,7 @@ export const demosData: DemoItem[] = [
     ],
     variants: createSectorVariants({
       basico: {
-        tagline: 'Página ágil con menú visual de cortes y reserva directa a WhatsApp.',
+        tagline: 'Página ágil con menú visual de cortes y reserva directa a WhatsApp (Navaja 809).',
         features: [
           'Tarifario básico de cortes, perfilado y toalla caliente',
           'Horarios de atención y mapa de ubicación',
@@ -201,6 +210,7 @@ export const demosData: DemoItem[] = [
         recommendedPages: ['Menú de Cortes', 'Horarios y Ubicación', 'Reserva'],
         status: 'disponible',
         demoUrl: 'https://barberia.asay2297.workers.dev',
+        coverImage: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1200&h=630&q=85',
       },
       pequena: {
         tagline: 'Web moderna de 5 a 8 páginas con perfiles de barberos y galería de estilos.',
@@ -260,6 +270,7 @@ export const demosData: DemoItem[] = [
     defaultPlanId: 'basico',
     order: 3,
     accentColor: '#e11d48',
+    coverImage: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=80',
     tags: ['salón de belleza', 'estilismo', 'balayage', 'keratina', 'peinados', 'colorimetría'],
     practicalBenefits: [
       'Genera credibilidad inmediata mostrando la calidad de tus trabajos antes de que la clienta agende.',
@@ -273,7 +284,7 @@ export const demosData: DemoItem[] = [
     ],
     variants: createSectorVariants({
       basico: {
-        tagline: 'Vitrina ágil de 1 a 3 secciones para peinados, tintes y citas.',
+        tagline: 'Vitrina ágil de 1 a 3 secciones para peinados, tintes y citas (Aura Beauty Studio).',
         features: [
           'Menú esencial de peinados, secado y alisados',
           'Galería compacta de fotos antes y después',
@@ -282,6 +293,7 @@ export const demosData: DemoItem[] = [
         recommendedPages: ['Inicio', 'Servicios Principales', 'Contacto y Citas'],
         status: 'disponible',
         demoUrl: 'https://salondebelleza.asay2297.workers.dev',
+        coverImage: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=80',
       },
       pequena: {
         tagline: 'Web completa de 5 a 8 páginas con lookbook de novias y tratamientos capilares.',
@@ -341,6 +353,7 @@ export const demosData: DemoItem[] = [
     defaultPlanId: 'pequena',
     order: 4,
     accentColor: '#9333ea',
+    coverImage: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1200&q=80',
     tags: ['uñas', 'nail bar', 'manicura', 'pedicura', 'estética', 'polygel', 'pestañas'],
     practicalBenefits: [
       'Disminuye el tiempo que tu personal dedica a enviar fotos de diseños por mensaje privado.',
@@ -421,6 +434,7 @@ export const demosData: DemoItem[] = [
     defaultPlanId: 'pequena',
     order: 5,
     accentColor: '#1e40af',
+    coverImage: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1200&q=80',
     tags: ['taller mecánico', 'diagnóstico automotriz', 'cambio de aceite', 'frenos', 'suspensión', 'vehículos'],
     practicalBenefits: [
       'Vence la desconfianza natural del conductor mostrando instalaciones ordenadas y personal identificado.',
@@ -501,6 +515,7 @@ export const demosData: DemoItem[] = [
     defaultPlanId: 'pequena',
     order: 6,
     accentColor: '#ea580c',
+    coverImage: 'https://images.unsplash.com/photo-1581783342308-f792dbdd27c5?auto=format&fit=crop&w=1200&q=80',
     tags: ['ferretería', 'materiales de construcción', 'herramientas', 'pintura', 'plomería', 'cemento', 'flete'],
     practicalBenefits: [
       'Capta pedidos de obra grandes que se deciden por rapidez de cotización y despacho.',
@@ -581,6 +596,7 @@ export const demosData: DemoItem[] = [
     defaultPlanId: 'pequena',
     order: 7,
     accentColor: '#3b82f6',
+    coverImage: 'https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=1200&q=80',
     tags: ['repuestos', 'autopartes', 'chasis', 'talleres', 'vehículos', 'piezas', 'envíos nacionales'],
     practicalBenefits: [
       'Ahorra tiempo a tus vendedores al recibir solicitudes con marca, año y foto ya listos.',
@@ -661,6 +677,7 @@ export const demosData: DemoItem[] = [
     defaultPlanId: 'basico',
     order: 8,
     accentColor: '#d97706',
+    coverImage: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1200&q=80',
     tags: ['electricista', 'cortocircuitos', 'energía solar', 'bombas de agua', 'cableado', 'emergencias eléctricas'],
     practicalBenefits: [
       'Da seguridad a familias de contratar a un profesional verificado para entrar a su hogar.',
@@ -741,6 +758,7 @@ export const demosData: DemoItem[] = [
     defaultPlanId: 'mediana',
     order: 9,
     accentColor: '#059669',
+    coverImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
     tags: ['bienes raíces', 'inmobiliaria', 'apartamentos', 'villas', 'punta cana', 'airbnb', 'inversión'],
     practicalBenefits: [
       'Genera confianza en compradores extranjeros y locales con una presentación de alta gama.',
@@ -822,6 +840,7 @@ export const demosData: DemoItem[] = [
     defaultPlanId: 'pequena',
     order: 10,
     accentColor: '#0891b2',
+    coverImage: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80',
     tags: ['airbnb', 'villas turísticas', 'alojamiento', 'jarabacoa', 'las terrenas', 'vacaciones', 'reservas'],
     practicalBenefits: [
       'Ahorra entre un 15% y 20% en comisiones de plataformas atrayendo reservas directas.',
@@ -902,6 +921,7 @@ export const demosData: DemoItem[] = [
     defaultPlanId: 'pequena',
     order: 11,
     accentColor: '#dc2626',
+    coverImage: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80',
     tags: ['restaurante', 'cafetería', 'menú digital', 'delivery', 'comida', 'gastronomía', 'reserva de mesas'],
     practicalBenefits: [
       'Evita que los clientes tengan que descargar molestos archivos PDF lentos en sus celulares.',
@@ -982,6 +1002,7 @@ export const demosData: DemoItem[] = [
     defaultPlanId: 'pequena',
     order: 12,
     accentColor: '#0284c7',
+    coverImage: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1200&q=80',
     tags: ['transporte turístico', 'transfers', 'aeropuerto', 'excursiones', 'saona', 'punta cana', 'chofer privado'],
     practicalBenefits: [
       'Capta turistas antes de que aterricen en el país ofreciendo reservas previas confiables.',

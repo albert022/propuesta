@@ -31,48 +31,62 @@ export const HeroCompositionVisual: React.FC = () => {
           {/* Desktop Preview Content */}
           <div className="p-5 sm:p-6 bg-slate-50/60">
             {/* Header simulation */}
-            <div className="flex items-center justify-between mb-5 pb-3 border-b border-slate-200/80">
+            <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-200/80">
               <div className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-lg bg-blue-700 text-white flex items-center justify-center font-bold text-xs">
-                  QM
+                <div className="w-7 h-7 rounded-lg bg-blue-700 text-white flex items-center justify-center font-bold text-xs shadow-xs">
+                  CV
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-slate-900 leading-tight">ClimaPro Dominicana</div>
-                  <div className="text-[10px] text-slate-500">Aire Acondicionado e Inversores</div>
+                  <div className="text-xs font-bold text-slate-900 leading-tight">ClimaVolt RD</div>
+                  <div className="text-[10px] font-mono text-slate-500">climavolt-servicios-rd.workers.dev</div>
                 </div>
               </div>
-              <div className="flex items-center gap-1.5 text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-lg">
-                <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                WhatsApp 24/7
+              <div className="flex items-center gap-1.5 text-[11px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-lg">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                Demo en Vivo
               </div>
             </div>
 
-            {/* Grid of sample mini cards */}
+            {/* Grid of sample mini cards with real demo cover photos */}
             <div className="grid grid-cols-2 gap-3 mb-4">
-              <div className="bg-white p-3 rounded-xl border border-slate-200 shadow-xs">
-                <div className="flex items-center gap-2 mb-1.5">
-                  <div className="p-1 rounded-md bg-sky-100 text-sky-700">
-                    <Wrench className="w-3.5 h-3.5" />
-                  </div>
-                  <span className="text-xs font-bold text-slate-800">Mantenimiento</span>
+              <div className="group/card bg-white rounded-xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-shadow">
+                <div className="relative h-20 w-full overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80"
+                    alt="ClimaVolt RD Demo"
+                    className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+                  <span className="absolute bottom-1.5 left-2 text-[10px] font-bold text-white flex items-center gap-1">
+                    <Wrench className="w-3 h-3 text-sky-400" /> ClimaVolt RD
+                  </span>
                 </div>
-                <p className="text-[11px] text-slate-500 line-clamp-2">
-                  Limpieza profunda de evaporador y condensador con garantía.
-                </p>
-                <div className="mt-2 text-[10px] font-semibold text-blue-600">Desde RD$1,800</div>
+                <div className="p-2.5">
+                  <p className="text-[11px] text-slate-600 line-clamp-2">
+                    Aires acondicionados, inversores y atención por WhatsApp.
+                  </p>
+                  <div className="mt-1.5 text-[10px] font-extrabold text-blue-700">Plan Básico • En Vivo</div>
+                </div>
               </div>
 
-              <div className="bg-white p-3 rounded-xl border border-slate-200 shadow-xs">
-                <div className="flex items-center gap-2 mb-1.5">
-                  <div className="p-1 rounded-md bg-amber-100 text-amber-700">
-                    <Scissors className="w-3.5 h-3.5" />
-                  </div>
-                  <span className="text-xs font-bold text-slate-800">Barbería VIP</span>
+              <div className="group/card bg-white rounded-xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-shadow">
+                <div className="relative h-20 w-full overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=600&q=80"
+                    alt="Navaja 809 Barbería Demo"
+                    className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+                  <span className="absolute bottom-1.5 left-2 text-[10px] font-bold text-white flex items-center gap-1">
+                    <Scissors className="w-3 h-3 text-amber-400" /> Navaja 809
+                  </span>
                 </div>
-                <p className="text-[11px] text-slate-500 line-clamp-2">
-                  Corte, perfilado y toalla caliente con reserva de turno.
-                </p>
-                <div className="mt-2 text-[10px] font-semibold text-blue-600">Turnos en vivo</div>
+                <div className="p-2.5">
+                  <p className="text-[11px] text-slate-600 line-clamp-2">
+                    Menú de cortes, perfilado de barba y reserva de turnos.
+                  </p>
+                  <div className="mt-1.5 text-[10px] font-extrabold text-blue-700">Plan Básico • En Vivo</div>
+                </div>
               </div>
             </div>
 
@@ -90,32 +104,39 @@ export const HeroCompositionVisual: React.FC = () => {
           </div>
         </div>
 
-        {/* Mobile Phone Mockup Overlay */}
-        <div className="absolute -bottom-8 -right-4 sm:-right-8 w-48 sm:w-56 bg-slate-900 p-2.5 rounded-3xl shadow-2xl border-4 border-white transform transition-transform duration-500 hover:scale-105">
+        {/* Mobile Phone Mockup Overlay - Aura Beauty Studio (Live Demo) */}
+        <div className="absolute -bottom-8 -right-4 sm:-right-8 w-52 sm:w-60 bg-slate-900 p-2.5 rounded-3xl shadow-2xl border-4 border-white transform transition-transform duration-500 hover:scale-105">
           {/* Phone speaker notch */}
           <div className="w-16 h-3 bg-slate-800 rounded-full mx-auto mb-2" />
 
           {/* Phone screen */}
-          <div className="bg-white rounded-2xl p-3 text-slate-800 text-[11px] space-y-2">
-            <div className="flex items-center justify-between border-b pb-1.5 border-slate-100">
-              <span className="font-bold text-xs text-slate-900 truncate">El Rincón Criollo</span>
-              <span className="text-[9px] bg-red-100 text-red-700 px-1.5 py-0.5 rounded font-semibold">
-                Delivery
-              </span>
-            </div>
-
-            <div className="bg-slate-50 p-2 rounded-lg border border-slate-100">
-              <div className="flex items-center justify-between font-medium text-slate-900">
-                <span>Mofongo Especial</span>
-                <span className="text-blue-600 font-bold">RD$450</span>
+          <div className="bg-white rounded-2xl overflow-hidden text-slate-800 text-[11px] shadow-inner">
+            <div className="relative h-20 w-full overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=400&q=80"
+                alt="Aura Beauty Studio Demo"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent" />
+              <div className="absolute bottom-1.5 left-2 right-2 flex items-center justify-between">
+                <span className="font-bold text-xs text-white truncate">Aura Beauty</span>
+                <span className="text-[9px] bg-rose-500 text-white px-1.5 py-0.5 rounded-full font-semibold">
+                  En Vivo
+                </span>
               </div>
-              <p className="text-[9px] text-slate-500">Chicharrón crujiente con queso frito</p>
             </div>
 
-            {/* Direct WhatsApp Action Button */}
-            <div className="bg-emerald-600 text-white rounded-xl py-2 px-2.5 flex items-center justify-center gap-1.5 shadow-sm font-semibold text-[10px]">
-              <MessageSquare className="w-3 h-3" />
-              <span>Pedir por WhatsApp</span>
+            <div className="p-2.5 space-y-2">
+              <div className="bg-slate-50 p-1.5 rounded-lg border border-slate-100 flex items-center justify-between text-[10px]">
+                <span className="font-semibold text-slate-800">Balayage & Estilismo</span>
+                <span className="text-rose-600 font-bold">Desde RD$3,500</span>
+              </div>
+
+              {/* Direct WhatsApp Action Button */}
+              <div className="bg-emerald-600 text-white rounded-xl py-1.5 px-2 flex items-center justify-center gap-1.5 shadow-xs font-semibold text-[10px]">
+                <MessageSquare className="w-3 h-3" />
+                <span>Agendar Cita WhatsApp</span>
+              </div>
             </div>
           </div>
         </div>

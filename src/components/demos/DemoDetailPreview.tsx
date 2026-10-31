@@ -40,6 +40,7 @@ export const DemoDetailPreview: React.FC<DemoDetailPreviewProps> = ({
   };
 
   const currentVariant = demo.variants[activePlanId];
+  const coverImage = currentVariant.coverImage || demo.coverImage;
   const isAvailable = currentVariant.status === 'disponible';
   const hasExternalUrl = Boolean(currentVariant.demoUrl && currentVariant.demoUrl.trim().length > 0);
 
@@ -230,6 +231,16 @@ export const DemoDetailPreview: React.FC<DemoDetailPreviewProps> = ({
                   currentVariant.previewGradient || 'from-blue-700 to-sky-600'
                 } relative overflow-hidden shadow-lg`}
               >
+                {coverImage && (
+                  <>
+                    <img
+                      src={coverImage}
+                      alt={demo.name}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/75 to-slate-950/40 pointer-events-none" />
+                  </>
+                )}
                 <div className="relative z-10 max-w-xl space-y-3">
                   <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-white/20 backdrop-blur-md">
                     <Sparkles className="w-3 h-3 text-amber-300" />

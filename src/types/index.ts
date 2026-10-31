@@ -34,6 +34,7 @@ export interface SectorPlanVariant {
   status: DemoStatus;
   demoUrl?: string; // independent demo URL for this variant if exists
   previewGradient?: string;
+  coverImage?: string;
   badge?: string;
 }
 

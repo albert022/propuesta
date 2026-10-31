@@ -35,6 +35,7 @@ export interface SectorPlanVariant {
   demoUrl?: string; // independent demo URL for this variant if exists
   previewGradient?: string;
   coverImage?: string;
+  mobileCoverImage?: string;
   badge?: string;
 }
 
@@ -47,6 +48,7 @@ export interface DemoItem {
   shortDescription: string;
   fullDescription: string;
   coverImage?: string;
+  mobileCoverImage?: string;
   accentColor?: string;
   defaultPlanId: PlanId;
   variants: Record<PlanId, SectorPlanVariant>;

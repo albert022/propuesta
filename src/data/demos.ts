@@ -12,6 +12,7 @@ function createSectorVariants(data: {
     demoUrl?: string;
     previewGradient?: string;
     coverImage?: string;
+    mobileCoverImage?: string;
   };
   pequena: {
     tagline: string;
@@ -21,6 +22,7 @@ function createSectorVariants(data: {
     demoUrl?: string;
     previewGradient?: string;
     coverImage?: string;
+    mobileCoverImage?: string;
   };
   mediana: {
     tagline: string;
@@ -30,6 +32,7 @@ function createSectorVariants(data: {
     demoUrl?: string;
     previewGradient?: string;
     coverImage?: string;
+    mobileCoverImage?: string;
   };
 }): Record<PlanId, SectorPlanVariant> {
   return {
@@ -48,6 +51,7 @@ function createSectorVariants(data: {
       demoUrl: data.basico.demoUrl,
       previewGradient: data.basico.previewGradient || 'from-blue-600 to-cyan-600',
       coverImage: data.basico.coverImage,
+      mobileCoverImage: data.basico.mobileCoverImage,
       badge: 'Inicio Ágil',
     },
     pequena: {
@@ -65,6 +69,7 @@ function createSectorVariants(data: {
       demoUrl: data.pequena.demoUrl,
       previewGradient: data.pequena.previewGradient || 'from-blue-700 to-indigo-800',
       coverImage: data.pequena.coverImage,
+      mobileCoverImage: data.pequena.mobileCoverImage,
       badge: 'Más Popular',
     },
     mediana: {
@@ -82,6 +87,7 @@ function createSectorVariants(data: {
       demoUrl: data.mediana.demoUrl,
       previewGradient: data.mediana.previewGradient || 'from-slate-900 to-blue-950',
       coverImage: data.mediana.coverImage,
+      mobileCoverImage: data.mediana.mobileCoverImage,
       badge: 'Escala y Máxima Personalización',
     },
   };
@@ -102,7 +108,8 @@ export const demosData: DemoItem[] = [
     defaultPlanId: 'basico',
     order: 1,
     accentColor: '#0284c7',
-    coverImage: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1200&q=80',
+    coverImage: '/images/demos/climavolt-preview.png',
+    mobileCoverImage: '/images/demos/climavolt-mobile.png',
     tags: ['aire acondicionado', 'inversores', 'climatización', 'técnicos', 'mantenimiento', 'emergencias'],
     practicalBenefits: [
       'Reduce hasta un 70% las llamadas repetitivas sobre qué servicios realizas y en qué zonas trabajas.',
@@ -125,7 +132,8 @@ export const demosData: DemoItem[] = [
         recommendedPages: ['Inicio con Hero de Urgencias', 'Resumen de Servicios y Tarifas', 'Contacto y Cobertura'],
         status: 'disponible',
         demoUrl: 'https://climavolt-servicios-rd.asay2297.workers.dev',
-        coverImage: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1200&q=80',
+        coverImage: '/images/demos/climavolt-preview.png',
+        mobileCoverImage: '/images/demos/climavolt-mobile.png',
       },
       pequena: {
         tagline: 'Web completa de 5 a 8 páginas para empresas de servicio técnico consolidado.',
@@ -187,7 +195,8 @@ export const demosData: DemoItem[] = [
     defaultPlanId: 'basico',
     order: 2,
     accentColor: '#d97706',
-    coverImage: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1200&h=630&q=85',
+    coverImage: '/images/demos/barberia-preview.png',
+    mobileCoverImage: '/images/demos/barberia-mobile.png',
     tags: ['barbería', 'cortes de cabello', 'barba', 'cuidado masculino', 'fade', 'turnos'],
     practicalBenefits: [
       'Elimina el caos de turnos y llamadas continuas durante las horas más concurridas.',
@@ -210,7 +219,8 @@ export const demosData: DemoItem[] = [
         recommendedPages: ['Menú de Cortes', 'Horarios y Ubicación', 'Reserva'],
         status: 'disponible',
         demoUrl: 'https://barberia.asay2297.workers.dev',
-        coverImage: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1200&h=630&q=85',
+        coverImage: '/images/demos/barberia-preview.png',
+        mobileCoverImage: '/images/demos/barberia-mobile.png',
       },
       pequena: {
         tagline: 'Web moderna de 5 a 8 páginas con perfiles de barberos y galería de estilos.',
@@ -270,7 +280,8 @@ export const demosData: DemoItem[] = [
     defaultPlanId: 'basico',
     order: 3,
     accentColor: '#e11d48',
-    coverImage: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=80',
+    coverImage: '/images/demos/salondebelleza-preview.png',
+    mobileCoverImage: '/images/demos/salondebelleza-mobile.png',
     tags: ['salón de belleza', 'estilismo', 'balayage', 'keratina', 'peinados', 'colorimetría'],
     practicalBenefits: [
       'Genera credibilidad inmediata mostrando la calidad de tus trabajos antes de que la clienta agende.',
@@ -293,7 +304,8 @@ export const demosData: DemoItem[] = [
         recommendedPages: ['Inicio', 'Servicios Principales', 'Contacto y Citas'],
         status: 'disponible',
         demoUrl: 'https://salondebelleza.asay2297.workers.dev',
-        coverImage: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=80',
+        coverImage: '/images/demos/salondebelleza-preview.png',
+        mobileCoverImage: '/images/demos/salondebelleza-mobile.png',
       },
       pequena: {
         tagline: 'Web completa de 5 a 8 páginas con lookbook de novias y tratamientos capilares.',

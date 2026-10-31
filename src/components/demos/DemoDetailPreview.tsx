@@ -41,6 +41,8 @@ export const DemoDetailPreview: React.FC<DemoDetailPreviewProps> = ({
 
   const currentVariant = demo.variants[activePlanId];
   const coverImage = currentVariant.coverImage || demo.coverImage;
+  const mobileCoverImage = currentVariant.mobileCoverImage || demo.mobileCoverImage;
+  const activeScreenshot = deviceView === 'mobile' ? (mobileCoverImage || coverImage) : coverImage;
   const isAvailable = currentVariant.status === 'disponible';
   const hasExternalUrl = Boolean(currentVariant.demoUrl && currentVariant.demoUrl.trim().length > 0);
 
@@ -199,108 +201,128 @@ export const DemoDetailPreview: React.FC<DemoDetailPreviewProps> = ({
           </div>
 
           {/* Rendered Preview Screen */}
-          <div className="bg-white text-slate-900 p-5 sm:p-8 min-h-[420px] flex flex-col justify-between">
-            {/* Mock Header */}
-            <div>
-              <div className="flex items-center justify-between pb-4 border-b border-slate-200">
-                <div className="flex items-center gap-2.5">
-                  <div
-                    className="w-9 h-9 rounded-xl flex items-center justify-center text-white font-bold text-sm shadow-md"
-                    style={{ backgroundColor: demo.accentColor || '#1e40af' }}
-                  >
-                    QM
-                  </div>
-                  <div>
-                    <h4 className="font-extrabold text-slate-900 text-sm sm:text-base leading-tight">
-                      {demo.name}
-                    </h4>
-                    <p className="text-[11px] text-slate-500">{demo.category}</p>
-                  </div>
-                </div>
-
+          {activeScreenshot ? (
+            <div className="relative bg-slate-950 overflow-hidden">
+              <div className="relative max-h-[560px] overflow-y-auto scrollbar-thin">
+                <img
+                  src={activeScreenshot}
+                  alt={`Captura real de la página ${demo.name}`}
+                  className="w-full h-auto object-cover object-top block"
+                />
+              </div>
+              {/* Bottom bar inside browser simulator */}
+              <div className="bg-slate-900/95 backdrop-blur-md px-4 py-3 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs">
                 <div className="flex items-center gap-2">
-                  <span className="text-[11px] font-bold text-blue-700 bg-blue-50 px-2.5 py-1 rounded-full border border-blue-200">
-                    {currentVariant.pagesScope.split('(')[0].trim()}
-                  </span>
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="text-slate-300 font-medium">Demostración en vivo en línea</span>
                 </div>
-              </div>
-
-              {/* Mock Hero Banner */}
-              <div
-                className={`mt-6 rounded-2xl p-6 sm:p-8 text-white bg-gradient-to-br ${
-                  currentVariant.previewGradient || 'from-blue-700 to-sky-600'
-                } relative overflow-hidden shadow-lg`}
-              >
-                {coverImage && (
-                  <>
-                    <img
-                      src={coverImage}
-                      alt={demo.name}
-                      className="absolute inset-0 w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/75 to-slate-950/40 pointer-events-none" />
-                  </>
-                )}
-                <div className="relative z-10 max-w-xl space-y-3">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-white/20 backdrop-blur-md">
-                    <Sparkles className="w-3 h-3 text-amber-300" />
-                    <span>{currentVariant.planName}</span>
-                  </div>
-
-                  <h3 className="text-xl sm:text-2xl font-black leading-tight text-white">
-                    {demo.name}
-                  </h3>
-
-                  <p className="text-xs sm:text-sm text-white/90 leading-relaxed">
-                    {currentVariant.tagline}
-                  </p>
-
-                  <div className="pt-2 flex flex-wrap gap-2">
-                    <div className="bg-white text-slate-900 font-bold px-3 py-1.5 rounded-xl text-xs flex items-center gap-1.5 shadow-sm">
-                      <PhoneCall className="w-3.5 h-3.5 text-blue-600" />
-                      <span>WhatsApp Directo</span>
-                    </div>
-                    <div className="bg-black/30 backdrop-blur-md text-white font-medium px-3 py-1.5 rounded-xl text-xs flex items-center gap-1.5 border border-white/20">
-                      <Star className="w-3.5 h-3.5 fill-amber-300 text-amber-300" />
-                      <span>Google Reviews</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Mock Features Row */}
-              <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
-                {currentVariant.features.map((feat, i) => (
-                  <div
-                    key={i}
-                    className="p-3 bg-slate-50 rounded-xl border border-slate-200/80 flex items-start gap-2 text-xs"
+                {hasExternalUrl && (
+                  <a
+                    href={currentVariant.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-blue-400 hover:text-blue-300 font-bold transition-colors"
                   >
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                    <span className="text-slate-700 font-medium">{feat}</span>
-                  </div>
-                ))}
+                    <span>Abrir sitio web completo</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                )}
               </div>
             </div>
+          ) : (
+            <div className="bg-white text-slate-900 p-5 sm:p-8 min-h-[420px] flex flex-col justify-between">
+              {/* Mock Header */}
+              <div>
+                <div className="flex items-center justify-between pb-4 border-b border-slate-200">
+                  <div className="flex items-center gap-2.5">
+                    <div
+                      className="w-9 h-9 rounded-xl flex items-center justify-center text-white font-bold text-sm shadow-md"
+                      style={{ backgroundColor: demo.accentColor || '#1e40af' }}
+                    >
+                      QM
+                    </div>
+                    <div>
+                      <h4 className="font-extrabold text-slate-900 text-sm sm:text-base leading-tight">
+                        {demo.name}
+                      </h4>
+                      <p className="text-[11px] text-slate-500">{demo.category}</p>
+                    </div>
+                  </div>
 
-            {/* Mock Bottom CTA Bar */}
-            <div className="mt-8 pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
-              <span className="font-medium">
-                Inversión: {currentVariant.initialPricePrefix || 'RD$'}{' '}
-                {currentVariant.initialPrice.toLocaleString('es-DO')} inicial +{' '}
-                {currentVariant.monthlyPricePrefix || 'RD$'}{' '}
-                {currentVariant.monthlyPrice.toLocaleString('es-DO')}/mes
-              </span>
-              <a
-                href={getWhatsAppUrl(whatsappMessage)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-blue-700 font-bold hover:underline"
-              >
-                <span>Solicitar esta variante por WhatsApp</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </a>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[11px] font-bold text-blue-700 bg-blue-50 px-2.5 py-1 rounded-full border border-blue-200">
+                      {currentVariant.pagesScope.split('(')[0].trim()}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Mock Hero Banner */}
+                <div
+                  className={`mt-6 rounded-2xl p-6 sm:p-8 text-white bg-gradient-to-br ${
+                    currentVariant.previewGradient || 'from-blue-700 to-sky-600'
+                  } relative overflow-hidden shadow-lg`}
+                >
+                  <div className="relative z-10 max-w-xl space-y-3">
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-white/20 backdrop-blur-md">
+                      <Sparkles className="w-3 h-3 text-amber-300" />
+                      <span>{currentVariant.planName}</span>
+                    </div>
+
+                    <h3 className="text-xl sm:text-2xl font-black leading-tight text-white">
+                      {demo.name}
+                    </h3>
+
+                    <p className="text-xs sm:text-sm text-white/90 leading-relaxed">
+                      {currentVariant.tagline}
+                    </p>
+
+                    <div className="pt-2 flex flex-wrap gap-2">
+                      <div className="bg-white text-slate-900 font-bold px-3 py-1.5 rounded-xl text-xs flex items-center gap-1.5 shadow-sm">
+                        <PhoneCall className="w-3.5 h-3.5 text-blue-600" />
+                        <span>WhatsApp Directo</span>
+                      </div>
+                      <div className="bg-black/30 backdrop-blur-md text-white font-medium px-3 py-1.5 rounded-xl text-xs flex items-center gap-1.5 border border-white/20">
+                        <Star className="w-3.5 h-3.5 fill-amber-300 text-amber-300" />
+                        <span>Google Reviews</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Mock Features Row */}
+                <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  {currentVariant.features.map((feat, i) => (
+                    <div
+                      key={i}
+                      className="p-3 bg-slate-50 rounded-xl border border-slate-200/80 flex items-start gap-2 text-xs"
+                    >
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                      <span className="text-slate-700 font-medium">{feat}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Mock Bottom CTA Bar */}
+              <div className="mt-8 pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+                <span className="font-medium">
+                  Inversión: {currentVariant.initialPricePrefix || 'RD$'}{' '}
+                  {currentVariant.initialPrice.toLocaleString('es-DO')} inicial +{' '}
+                  {currentVariant.monthlyPricePrefix || 'RD$'}{' '}
+                  {currentVariant.monthlyPrice.toLocaleString('es-DO')}/mes
+                </span>
+                <a
+                  href={getWhatsAppUrl(whatsappMessage)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-blue-700 font-bold hover:underline"
+                >
+                  <span>Solicitar esta variante por WhatsApp</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
 

@@ -47,16 +47,16 @@ export const HeroCompositionVisual: React.FC = () => {
               </div>
             </div>
 
-            {/* Grid of sample mini cards with real demo cover photos */}
+            {/* Grid of sample mini cards with real demo screenshots */}
             <div className="grid grid-cols-2 gap-3 mb-4">
               <div className="group/card bg-white rounded-xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-shadow">
-                <div className="relative h-20 w-full overflow-hidden">
+                <div className="relative h-24 w-full overflow-hidden bg-slate-900">
                   <img
-                    src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80"
-                    alt="ClimaVolt RD Demo"
-                    className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500"
+                    src="/images/demos/climavolt-preview.png"
+                    alt="Captura real del sitio web ClimaVolt RD"
+                    className="w-full h-full object-cover object-top group-hover/card:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
                   <span className="absolute bottom-1.5 left-2 text-[10px] font-bold text-white flex items-center gap-1">
                     <Wrench className="w-3 h-3 text-sky-400" /> ClimaVolt RD
                   </span>
@@ -70,13 +70,13 @@ export const HeroCompositionVisual: React.FC = () => {
               </div>
 
               <div className="group/card bg-white rounded-xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-shadow">
-                <div className="relative h-20 w-full overflow-hidden">
+                <div className="relative h-24 w-full overflow-hidden bg-slate-900">
                   <img
-                    src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=600&q=80"
-                    alt="Navaja 809 Barbería Demo"
-                    className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500"
+                    src="/images/demos/barberia-preview.png"
+                    alt="Captura real del sitio web Navaja 809 Barbería"
+                    className="w-full h-full object-cover object-top group-hover/card:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
                   <span className="absolute bottom-1.5 left-2 text-[10px] font-bold text-white flex items-center gap-1">
                     <Scissors className="w-3 h-3 text-amber-400" /> Navaja 809
                   </span>
@@ -104,32 +104,32 @@ export const HeroCompositionVisual: React.FC = () => {
           </div>
         </div>
 
-        {/* Mobile Phone Mockup Overlay - Aura Beauty Studio (Live Demo) */}
+        {/* Mobile Phone Mockup Overlay - Aura Beauty Studio (Live Demo Screenshot) */}
         <div className="absolute -bottom-8 -right-4 sm:-right-8 w-52 sm:w-60 bg-slate-900 p-2.5 rounded-3xl shadow-2xl border-4 border-white transform transition-transform duration-500 hover:scale-105">
           {/* Phone speaker notch */}
           <div className="w-16 h-3 bg-slate-800 rounded-full mx-auto mb-2" />
 
           {/* Phone screen */}
-          <div className="bg-white rounded-2xl overflow-hidden text-slate-800 text-[11px] shadow-inner">
-            <div className="relative h-20 w-full overflow-hidden">
+          <div className="bg-slate-900 rounded-2xl overflow-hidden text-slate-800 text-[11px] shadow-inner border border-slate-700/60">
+            <div className="relative h-44 w-full overflow-hidden bg-slate-950">
               <img
-                src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=400&q=80"
-                alt="Aura Beauty Studio Demo"
-                className="w-full h-full object-cover"
+                src="/images/demos/salondebelleza-mobile.png"
+                alt="Captura real del sitio web Aura Beauty Studio"
+                className="w-full h-full object-cover object-top"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent pointer-events-none" />
               <div className="absolute bottom-1.5 left-2 right-2 flex items-center justify-between">
-                <span className="font-bold text-xs text-white truncate">Aura Beauty</span>
+                <span className="font-bold text-xs text-white truncate">Aura Beauty Studio</span>
                 <span className="text-[9px] bg-rose-500 text-white px-1.5 py-0.5 rounded-full font-semibold">
                   En Vivo
                 </span>
               </div>
             </div>
 
-            <div className="p-2.5 space-y-2">
-              <div className="bg-slate-50 p-1.5 rounded-lg border border-slate-100 flex items-center justify-between text-[10px]">
-                <span className="font-semibold text-slate-800">Balayage & Estilismo</span>
-                <span className="text-rose-600 font-bold">Desde RD$3,500</span>
+            <div className="p-2 space-y-1.5 bg-slate-950 text-white">
+              <div className="flex items-center justify-between text-[10px] text-slate-300">
+                <span>balayage, peinados y citas</span>
+                <span className="text-emerald-400 font-bold">Plan Básico</span>
               </div>
 
               {/* Direct WhatsApp Action Button */}

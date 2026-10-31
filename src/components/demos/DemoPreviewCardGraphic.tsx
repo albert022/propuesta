@@ -70,12 +70,12 @@ export const DemoPreviewCardGraphic: React.FC<DemoPreviewCardGraphicProps> = ({
         <>
           <img
             src={coverImage}
-            alt={`Captura del sitio web ${demo.name}`}
+            alt={`Captura real de la página ${demo.name}`}
             loading="lazy"
-            className="absolute inset-0 w-full h-full object-cover object-center transform transition-transform duration-700 group-hover:scale-105"
+            className="absolute inset-0 w-full h-full object-cover object-top transform transition-transform duration-700 group-hover:scale-105"
           />
-          {/* Multi-layered dark gradient overlay for optimal readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-slate-950/40 pointer-events-none" />
+          {/* Subtle gradient overlay at bottom to keep website clear and floating badge legible */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent pointer-events-none" />
         </>
       ) : (
         <>

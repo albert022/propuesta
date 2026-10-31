@@ -188,7 +188,9 @@ export const DemoDetailPreview: React.FC<DemoDetailPreviewProps> = ({
             </div>
             <div className="flex items-center gap-1.5 bg-slate-950 px-3 py-1 rounded-md text-[11px] font-mono text-slate-300 border border-slate-800 truncate max-w-[280px]">
               <Lock className="w-3 h-3 text-emerald-400" />
-              <span>https://demo.qrmoon.do/{demo.slug}?plan={activePlanId}</span>
+              <span>
+                {currentVariant.demoUrl || `https://demo.qrmoon.do/${demo.slug}?plan=${activePlanId}`}
+              </span>
             </div>
             <div className="text-[10px] text-slate-500 font-mono">
               {deviceView.toUpperCase()}

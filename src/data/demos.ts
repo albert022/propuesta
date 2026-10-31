@@ -93,7 +93,7 @@ export const demosData: DemoItem[] = [
       'Presenta tus servicios de instalación y mantenimiento, exhibe trabajos realizados y recibe solicitudes directas de cotización por WhatsApp.',
     fullDescription:
       'Una solución digital pensada para técnicos y empresas de climatización y energía alternativa en República Dominicana. Permite a tus clientes conocer tus áreas de servicio, tarifas de diagnóstico, tipos de equipos con los que trabajas y solicitar asistencia de emergencia con solo un toque en su celular.',
-    defaultPlanId: 'pequena',
+    defaultPlanId: 'basico',
     order: 1,
     accentColor: '#0284c7',
     tags: ['aire acondicionado', 'inversores', 'climatización', 'técnicos', 'mantenimiento', 'emergencias'],
@@ -117,6 +117,7 @@ export const demosData: DemoItem[] = [
         ],
         recommendedPages: ['Inicio con Hero de Urgencias', 'Resumen de Servicios y Tarifas', 'Contacto y Cobertura'],
         status: 'disponible',
+        demoUrl: 'https://climavolt-servicios-rd.asay2297.workers.dev',
       },
       pequena: {
         tagline: 'Web completa de 5 a 8 páginas para empresas de servicio técnico consolidado.',
@@ -175,7 +176,7 @@ export const demosData: DemoItem[] = [
       'Muestra los estilos de cortes, perfilado de barba, perfil de tus barberos y facilita la reserva directa de turnos mediante WhatsApp.',
     fullDescription:
       'Diseñada para barberías modernas y tradicionales que desean proyectar un ambiente exclusivo. Los clientes pueden ver el menú de servicios con precios claros, conocer al equipo, revisar horarios de apertura y agendar su cita directamente sin esperas telefónicas.',
-    defaultPlanId: 'pequena',
+    defaultPlanId: 'basico',
     order: 2,
     accentColor: '#d97706',
     tags: ['barbería', 'cortes de cabello', 'barba', 'cuidado masculino', 'fade', 'turnos'],
@@ -199,6 +200,7 @@ export const demosData: DemoItem[] = [
         ],
         recommendedPages: ['Menú de Cortes', 'Horarios y Ubicación', 'Reserva'],
         status: 'disponible',
+        demoUrl: 'https://barberia.asay2297.workers.dev',
       },
       pequena: {
         tagline: 'Web moderna de 5 a 8 páginas con perfiles de barberos y galería de estilos.',
@@ -255,7 +257,7 @@ export const demosData: DemoItem[] = [
       'Exhibe transformaciones de color, peinados para eventos, paquetes para novias y permite a tus clientas consultar disponibilidad al instante.',
     fullDescription:
       'Una vitrina elegante para salones de belleza y centros de estilismo capilar. Ideal para mostrar trabajos de balayage, keratina, peinados sociales y tratamientos de hidratación profunda, complementado con información sobre productos profesionales utilizados.',
-    defaultPlanId: 'pequena',
+    defaultPlanId: 'basico',
     order: 3,
     accentColor: '#e11d48',
     tags: ['salón de belleza', 'estilismo', 'balayage', 'keratina', 'peinados', 'colorimetría'],
@@ -279,6 +281,7 @@ export const demosData: DemoItem[] = [
         ],
         recommendedPages: ['Inicio', 'Servicios Principales', 'Contacto y Citas'],
         status: 'disponible',
+        demoUrl: 'https://salondebelleza.asay2297.workers.dev',
       },
       pequena: {
         tagline: 'Web completa de 5 a 8 páginas con lookbook de novias y tratamientos capilares.',

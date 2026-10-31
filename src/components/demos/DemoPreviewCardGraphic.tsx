@@ -76,7 +76,9 @@ export const DemoPreviewCardGraphic: React.FC<DemoPreviewCardGraphicProps> = ({
           <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
         </div>
         <div className="text-[10px] font-mono tracking-wider bg-black/30 backdrop-blur-sm px-2.5 py-0.5 rounded-full text-slate-300 border border-white/5 truncate max-w-[210px]">
-          demo.qrmoon.do/{demo.slug.slice(0, 14)}.../{currentVariant.planId}
+          {currentVariant.demoUrl
+            ? currentVariant.demoUrl.replace(/^https?:\/\//, '')
+            : `demo.qrmoon.do/${demo.slug.slice(0, 14)}.../${currentVariant.planId}`}
         </div>
         <div className="w-4" />
       </div>

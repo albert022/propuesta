@@ -1,7 +1,7 @@
 import React from 'react';
 import { DemoItem, PlanId } from '@/types';
 import { getWhatsAppUrl } from '@/data/config';
-import { Check, MessageSquare, Sparkles, Clock } from 'lucide-react';
+import { Check, MessageSquare, Sparkles, Clock, ExternalLink } from 'lucide-react';
 
 interface DemoPlanComparisonTableProps {
   demo: DemoItem;
@@ -216,10 +216,23 @@ export const DemoPlanComparisonTable: React.FC<DemoPlanComparisonTableProps> = (
                     }`}
                   >
                     {v.status === 'disponible' ? (
-                      <span className="inline-flex items-center gap-1 text-emerald-700 font-semibold text-xs">
-                        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                        Disponible
-                      </span>
+                      v.demoUrl ? (
+                        <a
+                          href={v.demoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-100 hover:bg-emerald-200 text-emerald-800 font-bold text-xs transition-colors shadow-2xs"
+                        >
+                          <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" />
+                          <span>Ver en vivo</span>
+                          <ExternalLink className="w-3 h-3 text-emerald-700" />
+                        </a>
+                      ) : (
+                        <span className="inline-flex items-center gap-1 text-emerald-700 font-semibold text-xs">
+                          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                          Disponible
+                        </span>
+                      )
                     ) : (
                       <span className="inline-flex items-center gap-1 text-amber-700 font-semibold text-xs">
                         <Clock className="w-3.5 h-3.5 text-amber-500" />

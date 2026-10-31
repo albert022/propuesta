@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { siteConfig, getWhatsAppUrl } from '@/data/config';
 import { CurrentYear } from '@/components/ui/CurrentYear';
+import { QrmoonLogo } from '@/components/ui/QrmoonLogo';
 import {
   MessageSquare,
   Mail,
@@ -18,23 +19,16 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 pb-12 border-b border-slate-800">
           {/* Brand info */}
           <div className="lg:col-span-2 space-y-4">
-            <Link href="/" className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-sky-400 flex items-center justify-center text-white shadow-md">
-                <span className="font-extrabold text-lg tracking-tighter">QM</span>
-              </div>
-              <div className="flex flex-col">
-                <div className="flex items-center gap-1.5">
-                  <span className="font-extrabold text-xl tracking-tight text-white">
-                    {siteConfig.name}
-                  </span>
-                  <span className="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded-full bg-blue-900/60 text-blue-300 border border-blue-700/50">
-                    RD
-                  </span>
-                </div>
-                <span className="text-xs text-slate-400 font-medium -mt-1">
-                  Soluciones Digitales & Demos
-                </span>
-              </div>
+            <Link href="/" className="flex items-center gap-2.5 group" aria-label="QRMOON — Inicio">
+              <QrmoonLogo
+                color="#ffffff"
+                className="group-hover:opacity-90 transition-opacity"
+                width={165}
+                height={28}
+              />
+              <span className="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded-full bg-blue-900/60 text-blue-300 border border-blue-700/50">
+                RD
+              </span>
             </Link>
 
             <p className="text-sm text-slate-400 max-w-sm leading-relaxed">

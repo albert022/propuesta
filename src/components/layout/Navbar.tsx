@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, MessageSquare } from 'lucide-react';
 import { getWhatsAppUrl } from '@/data/config';
+import { QrmoonLogo } from '@/components/ui/QrmoonLogo';
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,23 +43,16 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-700 to-sky-500 flex items-center justify-center text-white shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform">
-              <span className="font-extrabold text-lg tracking-tighter">QM</span>
-            </div>
-            <div className="flex flex-col">
-              <div className="flex items-center gap-1.5">
-                <span className="font-extrabold text-xl tracking-tight text-slate-900 group-hover:text-blue-700 transition-colors">
-                  QRMOON
-                </span>
-                <span className="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200/60 hidden sm:inline-block">
-                  RD
-                </span>
-              </div>
-              <span className="text-[10px] text-slate-500 font-medium -mt-1 hidden sm:block">
-                Soluciones Digitales
-              </span>
-            </div>
+          <Link href="/" className="flex items-center gap-2 group" aria-label="QRMOON — Inicio">
+            <QrmoonLogo
+              color="#2B336A"
+              className="group-hover:opacity-90 transition-opacity"
+              width={155}
+              height={26}
+            />
+            <span className="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200/60 hidden sm:inline-block">
+              RD
+            </span>
           </Link>
 
           {/* Desktop Navigation Links */}

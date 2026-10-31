@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: `${siteConfig.name} — Catálogo de Soluciones Digitales y Páginas Web en RD`,
+    default: `${siteConfig.name} — Catálogo de Soluciones Digitales y Páginas Web`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,

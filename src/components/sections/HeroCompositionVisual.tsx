@@ -24,7 +24,7 @@ export const HeroCompositionVisual: React.FC = () => {
               <span>https://demos.qrmoon.do/catalogo</span>
             </div>
             <div className="text-[11px] font-semibold text-blue-700 bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200">
-              Demos RD
+              Demos en Vivo
             </div>
           </div>
 

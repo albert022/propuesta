@@ -43,16 +43,13 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group" aria-label="QRMOON — Inicio">
+          <Link href="/" className="flex items-center group" aria-label="QRMOON — Inicio">
             <QrmoonLogo
               color="#2B336A"
               className="group-hover:opacity-90 transition-opacity"
-              width={155}
-              height={26}
+              width={160}
+              height={27}
             />
-            <span className="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200/60 hidden sm:inline-block">
-              RD
-            </span>
           </Link>
 
           {/* Desktop Navigation Links */}

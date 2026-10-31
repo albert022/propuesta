@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { DemoItem } from '@/types';
+import { DemoItem, PlanId } from '@/types';
 import {
   Monitor,
   Tablet,
@@ -14,22 +14,91 @@ import {
   CheckCircle2,
   Clock,
   ArrowRight,
+  Layers,
 } from 'lucide-react';
 import { getWhatsAppUrl } from '@/data/config';
 
 interface DemoDetailPreviewProps {
   demo: DemoItem;
+  initialPlanId?: PlanId;
+  onPlanChange?: (planId: PlanId) => void;
 }
 
-export const DemoDetailPreview: React.FC<DemoDetailPreviewProps> = ({ demo }) => {
+export const DemoDetailPreview: React.FC<DemoDetailPreviewProps> = ({
+  demo,
+  initialPlanId,
+  onPlanChange,
+}) => {
   const [deviceView, setDeviceView] = useState<'desktop' | 'tablet' | 'mobile'>('desktop');
-  const isAvailable = demo.status === 'disponible';
-  const hasExternalUrl = Boolean(demo.demoUrl && demo.demoUrl.trim().length > 0);
+  const [activePlanId, setActivePlanId] = useState<PlanId>(initialPlanId || demo.defaultPlanId);
 
-  const whatsappMessage = `Hola QRMOON, vi la propuesta para ${demo.name} y me gustaría una página similar para mi negocio. ¿Podemos cotizarla?`;
+  const handlePlanSelect = (pId: PlanId) => {
+    setActivePlanId(pId);
+    if (onPlanChange) {
+      onPlanChange(pId);
+    }
+  };
+
+  const currentVariant = demo.variants[activePlanId];
+  const isAvailable = currentVariant.status === 'disponible';
+  const hasExternalUrl = Boolean(currentVariant.demoUrl && currentVariant.demoUrl.trim().length > 0);
+
+  const whatsappMessage = `Hola QRMOON, vi la propuesta para ${demo.name} en su versión "${currentVariant.planName}" y me gustaría cotizarla para mi negocio.`;
 
   return (
-    <div className="bg-slate-900 rounded-3xl p-4 sm:p-6 shadow-2xl border border-slate-800 text-white">
+    <div className="bg-slate-900 rounded-3xl p-4 sm:p-6 shadow-2xl border border-slate-800 text-white space-y-6">
+      {/* 2-DIMENSION TIER SELECTOR: Selector de Variante de Paquete */}
+      <div className="bg-slate-800/90 rounded-2xl p-4 border border-slate-700/80 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="flex items-center gap-2">
+          <Layers className="w-5 h-5 text-blue-400 shrink-0" />
+          <div>
+            <div className="text-xs font-bold uppercase tracking-wider text-slate-400">
+              Nivel de Demostración:
+            </div>
+            <div className="text-sm font-black text-white">{currentVariant.planName}</div>
+          </div>
+        </div>
+
+        {/* 3 Package Tabs */}
+        <div className="flex items-center bg-slate-950 p-1 rounded-xl border border-slate-700 w-full md:w-auto">
+          <button
+            type="button"
+            onClick={() => handlePlanSelect('basico')}
+            className={`flex-1 md:flex-none px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all ${
+              activePlanId === 'basico'
+                ? 'bg-blue-600 text-white shadow-sm'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            Básico (RD$25k)
+          </button>
+
+          <button
+            type="button"
+            onClick={() => handlePlanSelect('pequena')}
+            className={`flex-1 md:flex-none px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all ${
+              activePlanId === 'pequena'
+                ? 'bg-blue-600 text-white shadow-sm'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            P. Pequeña (RD$50k)
+          </button>
+
+          <button
+            type="button"
+            onClick={() => handlePlanSelect('mediana')}
+            className={`flex-1 md:flex-none px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all ${
+              activePlanId === 'mediana'
+                ? 'bg-blue-600 text-white shadow-sm'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            P. Mediana (RD$100k)
+          </button>
+        </div>
+      </div>
+
       {/* Top Device View Switcher and Live Demo Button */}
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-4 border-b border-slate-800">
         {/* Device Switcher */}
@@ -76,31 +145,31 @@ export const DemoDetailPreview: React.FC<DemoDetailPreviewProps> = ({ demo }) =>
           {isAvailable ? (
             hasExternalUrl ? (
               <a
-                href={demo.demoUrl}
+                href={currentVariant.demoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold transition-colors shadow-sm"
               >
-                <span>Visitar demostración en vivo</span>
+                <span>Visitar demostración en vivo de este nivel</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
             ) : (
               <div className="flex items-center gap-2 text-xs text-slate-300 bg-slate-800/90 px-3.5 py-1.5 rounded-xl border border-slate-700">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span>Demo disponible en catálogo interactivo</span>
+                <span>Demostración interactiva activa en catálogo</span>
               </div>
             )
           ) : (
             <div className="flex items-center gap-2 text-xs text-amber-300 bg-amber-950/60 border border-amber-600/40 px-3.5 py-1.5 rounded-xl">
               <Clock className="w-3.5 h-3.5 text-amber-400" />
-              <span>Demostración en fase de diseño</span>
+              <span>Demostración de este nivel en fase de preparación</span>
             </div>
           )}
         </div>
       </div>
 
       {/* Frame Container */}
-      <div className="pt-6 pb-2 flex justify-center items-center overflow-hidden">
+      <div className="pt-2 pb-2 flex justify-center items-center overflow-hidden">
         <div
           className={`transition-all duration-300 overflow-hidden bg-slate-950 rounded-2xl border-4 border-slate-800 shadow-2xl ${
             deviceView === 'desktop'
@@ -117,9 +186,9 @@ export const DemoDetailPreview: React.FC<DemoDetailPreviewProps> = ({ demo }) =>
               <div className="w-2.5 h-2.5 rounded-full bg-amber-500" />
               <div className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
             </div>
-            <div className="flex items-center gap-1.5 bg-slate-950 px-3 py-1 rounded-md text-[11px] font-mono text-slate-300 border border-slate-800 truncate max-w-[260px]">
+            <div className="flex items-center gap-1.5 bg-slate-950 px-3 py-1 rounded-md text-[11px] font-mono text-slate-300 border border-slate-800 truncate max-w-[280px]">
               <Lock className="w-3 h-3 text-emerald-400" />
-              <span>https://demo.qrmoon.do/{demo.slug}</span>
+              <span>https://demo.qrmoon.do/{demo.slug}?plan={activePlanId}</span>
             </div>
             <div className="text-[10px] text-slate-500 font-mono">
               {deviceView.toUpperCase()}
@@ -146,9 +215,9 @@ export const DemoDetailPreview: React.FC<DemoDetailPreviewProps> = ({ demo }) =>
                   </div>
                 </div>
 
-                <div className="hidden sm:flex items-center gap-2">
-                  <span className="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
-                    WhatsApp Activo
+                <div className="flex items-center gap-2">
+                  <span className="text-[11px] font-bold text-blue-700 bg-blue-50 px-2.5 py-1 rounded-full border border-blue-200">
+                    {currentVariant.pagesScope.split('(')[0].trim()}
                   </span>
                 </div>
               </div>
@@ -156,13 +225,13 @@ export const DemoDetailPreview: React.FC<DemoDetailPreviewProps> = ({ demo }) =>
               {/* Mock Hero Banner */}
               <div
                 className={`mt-6 rounded-2xl p-6 sm:p-8 text-white bg-gradient-to-br ${
-                  demo.previewGradient || 'from-blue-700 to-sky-600'
+                  currentVariant.previewGradient || 'from-blue-700 to-sky-600'
                 } relative overflow-hidden shadow-lg`}
               >
                 <div className="relative z-10 max-w-xl space-y-3">
                   <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-white/20 backdrop-blur-md">
                     <Sparkles className="w-3 h-3 text-amber-300" />
-                    <span>Solución Digital Especializada</span>
+                    <span>{currentVariant.planName}</span>
                   </div>
 
                   <h3 className="text-xl sm:text-2xl font-black leading-tight text-white">
@@ -170,17 +239,17 @@ export const DemoDetailPreview: React.FC<DemoDetailPreviewProps> = ({ demo }) =>
                   </h3>
 
                   <p className="text-xs sm:text-sm text-white/90 leading-relaxed">
-                    {demo.shortDescription}
+                    {currentVariant.tagline}
                   </p>
 
                   <div className="pt-2 flex flex-wrap gap-2">
                     <div className="bg-white text-slate-900 font-bold px-3 py-1.5 rounded-xl text-xs flex items-center gap-1.5 shadow-sm">
                       <PhoneCall className="w-3.5 h-3.5 text-blue-600" />
-                      <span>Cotizar en 1 toque</span>
+                      <span>WhatsApp Directo</span>
                     </div>
                     <div className="bg-black/30 backdrop-blur-md text-white font-medium px-3 py-1.5 rounded-xl text-xs flex items-center gap-1.5 border border-white/20">
                       <Star className="w-3.5 h-3.5 fill-amber-300 text-amber-300" />
-                      <span>5.0 en Google</span>
+                      <span>Google Reviews</span>
                     </div>
                   </div>
                 </div>
@@ -188,7 +257,7 @@ export const DemoDetailPreview: React.FC<DemoDetailPreviewProps> = ({ demo }) =>
 
               {/* Mock Features Row */}
               <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
-                {demo.features.map((feat, i) => (
+                {currentVariant.features.map((feat, i) => (
                   <div
                     key={i}
                     className="p-3 bg-slate-50 rounded-xl border border-slate-200/80 flex items-start gap-2 text-xs"
@@ -203,7 +272,10 @@ export const DemoDetailPreview: React.FC<DemoDetailPreviewProps> = ({ demo }) =>
             {/* Mock Bottom CTA Bar */}
             <div className="mt-8 pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
               <span className="font-medium">
-                Diseño optimizado para teléfonos celulares en República Dominicana
+                Inversión: {currentVariant.initialPricePrefix || 'RD$'}{' '}
+                {currentVariant.initialPrice.toLocaleString('es-DO')} inicial +{' '}
+                {currentVariant.monthlyPricePrefix || 'RD$'}{' '}
+                {currentVariant.monthlyPrice.toLocaleString('es-DO')}/mes
               </span>
               <a
                 href={getWhatsAppUrl(whatsappMessage)}
@@ -211,7 +283,7 @@ export const DemoDetailPreview: React.FC<DemoDetailPreviewProps> = ({ demo }) =>
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-blue-700 font-bold hover:underline"
               >
-                <span>Solicitar demo personalizada por WhatsApp</span>
+                <span>Solicitar esta variante por WhatsApp</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </a>
             </div>
@@ -220,7 +292,7 @@ export const DemoDetailPreview: React.FC<DemoDetailPreviewProps> = ({ demo }) =>
       </div>
 
       <div className="text-center pt-2 text-[11px] text-slate-400">
-        Simulación interactiva de visualización responsiva. No requiere descargas ni configuraciones complejas.
+        Simulación interactiva de la variante {currentVariant.planName}. Adaptada fielmente a los estándares de QRMOON.
       </div>
     </div>
   );

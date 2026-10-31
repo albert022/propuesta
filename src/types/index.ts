@@ -1,5 +1,7 @@
 export type DemoStatus = 'disponible' | 'proximamente';
 
+export type PlanId = 'basico' | 'pequena' | 'mediana';
+
 export type CategoryGroupId =
   | 'todas'
   | 'belleza'
@@ -16,6 +18,25 @@ export interface CategoryGroup {
   description?: string;
 }
 
+export type CatalogExplorationMode = 'por-negocio' | 'por-plan';
+
+export interface SectorPlanVariant {
+  planId: PlanId;
+  planName: string;
+  tagline: string;
+  pagesScope: string; // e.g. "1 a 3 secciones o páginas"
+  initialPrice: number;
+  monthlyPrice: number;
+  initialPricePrefix?: string;
+  monthlyPricePrefix?: string;
+  features: string[];
+  recommendedPages: string[];
+  status: DemoStatus;
+  demoUrl?: string; // independent demo URL for this variant if exists
+  previewGradient?: string;
+  badge?: string;
+}
+
 export interface DemoItem {
   id: string;
   slug: string;
@@ -25,22 +46,14 @@ export interface DemoItem {
   shortDescription: string;
   fullDescription: string;
   coverImage?: string;
-  previewGradient?: string;
   accentColor?: string;
-  features: string[];
-  demoUrl?: string; // Real external link if exists, or undefined
-  status: DemoStatus;
-  suggestedServices: string[];
-  recommendedSections: {
-    title: string;
-    description: string;
-  }[];
-  practicalBenefits: string[];
+  defaultPlanId: PlanId;
+  variants: Record<PlanId, SectorPlanVariant>;
   order: number;
   tags: string[];
+  practicalBenefits: string[];
+  suggestedServices: string[];
 }
-
-export type PlanId = 'basico' | 'pequena' | 'mediana';
 
 export interface PlanItem {
   id: PlanId;
@@ -87,8 +100,8 @@ export interface SiteConfig {
   description: string;
   country: string;
   currency: string;
-  whatsappNumber: string; // E.g. "18295550199" (normalized for wa.me)
-  whatsappDisplay: string; // E.g. "+1 (829) 555-0199"
+  whatsappNumber: string;
+  whatsappDisplay: string;
   email: string;
   hours: string;
   location: string;

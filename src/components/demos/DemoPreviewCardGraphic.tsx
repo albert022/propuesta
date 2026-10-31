@@ -1,5 +1,5 @@
 import React from 'react';
-import { DemoItem } from '@/types';
+import { DemoItem, SectorPlanVariant } from '@/types';
 import {
   Wrench,
   Sparkles,
@@ -17,10 +17,17 @@ import {
 
 interface DemoPreviewCardGraphicProps {
   demo: DemoItem;
+  variant?: SectorPlanVariant;
   className?: string;
 }
 
-export const DemoPreviewCardGraphic: React.FC<DemoPreviewCardGraphicProps> = ({ demo, className = '' }) => {
+export const DemoPreviewCardGraphic: React.FC<DemoPreviewCardGraphicProps> = ({
+  demo,
+  variant,
+  className = '',
+}) => {
+  const currentVariant = variant || demo.variants[demo.defaultPlanId];
+
   const getSectorIcon = (id: string) => {
     switch (id) {
       case 'demo-aire-inversores':
@@ -55,7 +62,7 @@ export const DemoPreviewCardGraphic: React.FC<DemoPreviewCardGraphicProps> = ({ 
   return (
     <div
       className={`relative w-full aspect-[16/10] overflow-hidden rounded-t-2xl bg-gradient-to-br ${
-        demo.previewGradient || 'from-slate-800 to-slate-950'
+        currentVariant.previewGradient || 'from-slate-800 to-slate-950'
       } p-3 sm:p-4 text-white flex flex-col justify-between select-none ${className}`}
     >
       {/* Subdued ambient background pattern */}
@@ -68,8 +75,8 @@ export const DemoPreviewCardGraphic: React.FC<DemoPreviewCardGraphicProps> = ({ 
           <div className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
           <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
         </div>
-        <div className="text-[10px] font-mono tracking-wider bg-black/30 backdrop-blur-sm px-2.5 py-0.5 rounded-full text-slate-300 border border-white/5 truncate max-w-[190px]">
-          qrmoon-demo.do/{demo.slug.slice(0, 16)}...
+        <div className="text-[10px] font-mono tracking-wider bg-black/30 backdrop-blur-sm px-2.5 py-0.5 rounded-full text-slate-300 border border-white/5 truncate max-w-[210px]">
+          demo.qrmoon.do/{demo.slug.slice(0, 14)}.../{currentVariant.planId}
         </div>
         <div className="w-4" />
       </div>
@@ -82,7 +89,7 @@ export const DemoPreviewCardGraphic: React.FC<DemoPreviewCardGraphicProps> = ({ 
               <div className="p-1.5 rounded-lg bg-white/15 backdrop-blur-sm">
                 {getSectorIcon(demo.id)}
               </div>
-              <span className="text-xs font-semibold tracking-wide text-white truncate max-w-[170px]">
+              <span className="text-xs font-semibold tracking-wide text-white truncate max-w-[160px]">
                 {demo.name}
               </span>
             </div>
@@ -102,11 +109,11 @@ export const DemoPreviewCardGraphic: React.FC<DemoPreviewCardGraphicProps> = ({ 
           <div className="mt-3 pt-2 border-t border-white/10 flex items-center justify-between gap-2 text-[10px]">
             <div className="flex items-center gap-1 text-emerald-300 bg-emerald-950/60 border border-emerald-500/30 px-2 py-0.5 rounded-md">
               <CheckCircle2 className="w-3 h-3" />
-              <span>WhatsApp Directo</span>
+              <span>{currentVariant.pagesScope.split('(')[0].trim()}</span>
             </div>
             <div className="flex items-center gap-1 text-slate-200 bg-white/10 px-2 py-0.5 rounded-md">
               <PhoneCall className="w-3 h-3" />
-              <span>Citas 24/7</span>
+              <span>WhatsApp Directo</span>
             </div>
           </div>
         </div>
@@ -116,7 +123,7 @@ export const DemoPreviewCardGraphic: React.FC<DemoPreviewCardGraphicProps> = ({ 
       <div className="relative z-10 flex items-center justify-between text-[11px] text-white/70">
         <span className="font-medium truncate">{demo.category}</span>
         <span className="uppercase text-[9px] tracking-wider font-mono px-2 py-0.5 bg-black/40 rounded-md">
-          {demo.status === 'disponible' ? 'En Vivo' : 'En Diseño'}
+          {currentVariant.status === 'disponible' ? 'En Vivo' : 'En Preparación'}
         </span>
       </div>
     </div>

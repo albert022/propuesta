@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { DemoItem, CategoryGroupId } from '@/types';
+import { DemoItem, CategoryGroupId, CatalogExplorationMode, PlanId } from '@/types';
 import { DemoFilterBar } from './DemoFilterBar';
 import { DemoCard } from './DemoCard';
 import { HelpCircle } from 'lucide-react';
@@ -11,26 +11,36 @@ import { getWhatsAppUrl } from '@/data/config';
 interface DemoCatalogInteractiveProps {
   initialDemos: DemoItem[];
   initialCategory?: CategoryGroupId;
+  initialMode?: CatalogExplorationMode;
 }
 
 const DemoCatalogInteractiveInner: React.FC<DemoCatalogInteractiveProps> = ({
   initialDemos,
   initialCategory = 'todas',
+  initialMode = 'por-negocio',
 }) => {
   const searchParams = useSearchParams();
   const catParam = searchParams.get('cat') as CategoryGroupId | null;
+  const planParam = searchParams.get('plan') as PlanId | null;
+  const modeParam = searchParams.get('mode') as CatalogExplorationMode | null;
 
-  // React 19 idiomatic state: derive activeCategory directly without cascading effect
+  // Exploration Mode: 'por-negocio' | 'por-plan'
+  const [mode, setMode] = useState<CatalogExplorationMode>(modeParam || initialMode);
+
+  // Sector Category
   const [selectedCategory, setSelectedCategory] = useState<CategoryGroupId | null>(null);
   const activeCategory: CategoryGroupId = selectedCategory ?? (catParam || initialCategory);
+
+  // Budget Tier (when exploring by plan)
+  const [activeBudgetPlan, setActiveBudgetPlan] = useState<PlanId>(planParam || 'pequena');
 
   const [searchQuery, setSearchQuery] = useState('');
 
   const filteredDemos = useMemo(() => {
     let list = initialDemos;
 
-    // Filter by category
-    if (activeCategory !== 'todas') {
+    // In 'por-negocio' mode: filter by category
+    if (mode === 'por-negocio' && activeCategory !== 'todas') {
       list = list.filter((demo) => demo.categoryGroup === activeCategory);
     }
 
@@ -42,31 +52,41 @@ const DemoCatalogInteractiveInner: React.FC<DemoCatalogInteractiveProps> = ({
           demo.name.toLowerCase().includes(q) ||
           demo.shortDescription.toLowerCase().includes(q) ||
           demo.category.toLowerCase().includes(q) ||
-          demo.features.some((f) => f.toLowerCase().includes(q)) ||
-          demo.tags.some((t) => t.toLowerCase().includes(q))
+          demo.tags.some((t) => t.toLowerCase().includes(q)) ||
+          Object.values(demo.variants).some((v) =>
+            v.features.some((f) => f.toLowerCase().includes(q))
+          )
         );
       });
     }
 
     return list;
-  }, [initialDemos, activeCategory, searchQuery]);
+  }, [initialDemos, mode, activeCategory, searchQuery]);
 
   return (
     <div className="space-y-10">
-      {/* Search and Category Filter Bar */}
+      {/* 2-Dimensional Filter Bar (Mode, Sector, Budget Tier & Search) */}
       <DemoFilterBar
+        mode={mode}
+        onModeChange={setMode}
         activeCategory={activeCategory}
         onSelectCategory={setSelectedCategory}
+        activeBudgetPlan={activeBudgetPlan}
+        onSelectBudgetPlan={setActiveBudgetPlan}
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
         resultsCount={filteredDemos.length}
       />
 
-      {/* Demos Grid */}
+      {/* Demos Grid with 2-Dimensional Support */}
       {filteredDemos.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {filteredDemos.map((demo) => (
-            <DemoCard key={demo.id} demo={demo} />
+            <DemoCard
+              key={demo.id}
+              demo={demo}
+              forcePlanId={mode === 'por-plan' ? activeBudgetPlan : undefined}
+            />
           ))}
         </div>
       ) : (
@@ -80,8 +100,8 @@ const DemoCatalogInteractiveInner: React.FC<DemoCatalogInteractiveProps> = ({
           </h3>
           <p className="text-sm text-slate-600 leading-relaxed">
             No encontramos ninguna demostración que coincida con &ldquo;
-            <span className="font-semibold text-slate-800">{searchQuery}</span>&rdquo; en esta
-            categoría. Sin embargo, desarrollamos soluciones personalizadas para cualquier sector.
+            <span className="font-semibold text-slate-800">{searchQuery}</span>&rdquo;. Sin embargo,
+            desarrollamos soluciones a medida para cualquier sector.
           </p>
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
             <button

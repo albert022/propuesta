@@ -2,9 +2,9 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { servicesData } from '@/data/services';
 import { getWhatsAppUrl } from '@/data/config';
+import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
 import {
   Globe,
-  MessageSquare,
   Bot,
   Star,
   QrCode,
@@ -29,7 +29,7 @@ export default function SolucionesPage() {
       case 'desarrollo-web':
         return <Globe className="w-7 h-7 text-blue-600" />;
       case 'whatsapp-negocios':
-        return <MessageSquare className="w-7 h-7 text-emerald-600" />;
+        return <WhatsAppIcon className="w-7 h-7 text-emerald-600" />;
       case 'chatbots':
         return <Bot className="w-7 h-7 text-indigo-600" />;
       case 'google-reviews':
@@ -103,7 +103,7 @@ export default function SolucionesPage() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold text-xs sm:text-sm border border-blue-200/80 transition-colors whitespace-nowrap self-start"
                   >
-                    <MessageSquare className="w-4 h-4" />
+                    <WhatsAppIcon className="w-4 h-4" />
                     <span>Cotizar este servicio</span>
                   </a>
                 </div>

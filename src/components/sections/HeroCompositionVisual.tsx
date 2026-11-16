@@ -1,5 +1,6 @@
 import React from 'react';
-import { Smartphone, MessageSquare, Sparkles, Star, Wrench, Scissors, ShieldCheck } from 'lucide-react';
+import { Smartphone, Sparkles, Star, Wrench, Scissors, ShieldCheck } from 'lucide-react';
+import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
 
 export const HeroCompositionVisual: React.FC = () => {
   return (
@@ -134,7 +135,7 @@ export const HeroCompositionVisual: React.FC = () => {
 
               {/* Direct WhatsApp Action Button */}
               <div className="bg-emerald-600 text-white rounded-xl py-1.5 px-2 flex items-center justify-center gap-1.5 shadow-xs font-semibold text-[10px]">
-                <MessageSquare className="w-3 h-3" />
+                <WhatsAppIcon className="w-3 h-3" />
                 <span>Agendar Cita WhatsApp</span>
               </div>
             </div>
@@ -154,7 +155,7 @@ export const HeroCompositionVisual: React.FC = () => {
 
         <div className="absolute top-1/2 -left-6 transform -translate-y-1/2 hidden sm:flex bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-xl shadow-lg border border-slate-200 items-center gap-2">
           <div className="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center">
-            <MessageSquare className="w-4 h-4" />
+            <WhatsAppIcon className="w-4 h-4" />
           </div>
           <div>
             <div className="text-xs font-bold text-slate-900">Integración WhatsApp</div>

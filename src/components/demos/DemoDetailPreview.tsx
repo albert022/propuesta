@@ -48,6 +48,14 @@ export const DemoDetailPreview: React.FC<DemoDetailPreviewProps> = ({
 
   const whatsappMessage = `Hola QRMOON, vi la propuesta para ${demo.name} en su versión "${currentVariant.planName}" y me gustaría cotizarla para mi negocio.`;
 
+  const screenshotImg = activeScreenshot ? (
+    <img
+      src={activeScreenshot}
+      alt={`Captura real de la página ${demo.name}`}
+      className="w-full h-auto object-cover object-top block"
+    />
+  ) : null;
+
   return (
     <div className="bg-slate-900 rounded-3xl p-4 sm:p-6 shadow-2xl border border-slate-800 text-white space-y-6">
       {/* 2-DIMENSION TIER SELECTOR: Selector de Variante de Paquete */}
@@ -201,14 +209,23 @@ export const DemoDetailPreview: React.FC<DemoDetailPreviewProps> = ({
           </div>
 
           {/* Rendered Preview Screen */}
-          {activeScreenshot ? (
+          {screenshotImg ? (
             <div className="relative bg-slate-950 overflow-hidden">
               <div className="relative max-h-[560px] overflow-y-auto scrollbar-thin">
-                <img
-                  src={activeScreenshot}
-                  alt={`Captura real de la página ${demo.name}`}
-                  className="w-full h-auto object-cover object-top block"
-                />
+                {isAvailable && hasExternalUrl ? (
+                  <a
+                    href={currentVariant.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Abrir demostración en vivo de ${demo.name} en una nueva pestaña`}
+                    title="Abrir sitio web en una nueva pestaña"
+                    className="block cursor-pointer"
+                  >
+                    {screenshotImg}
+                  </a>
+                ) : (
+                  screenshotImg
+                )}
               </div>
               {/* Bottom bar inside browser simulator */}
               <div className="bg-slate-900/95 backdrop-blur-md px-4 py-3 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs">

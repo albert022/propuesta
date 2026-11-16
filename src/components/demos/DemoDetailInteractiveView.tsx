@@ -6,8 +6,8 @@ import { DemoItem, PlanId } from '@/types';
 import { DemoDetailPreview } from './DemoDetailPreview';
 import { DemoPlanComparisonTable } from './DemoPlanComparisonTable';
 import { getWhatsAppUrl } from '@/data/config';
+import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
 import {
-  MessageSquare,
   CheckCircle2,
   Layers,
   Sparkles,
@@ -111,7 +111,7 @@ const DemoDetailInteractiveViewInner: React.FC<DemoDetailInteractiveViewProps> =
               rel="noopener noreferrer"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-md shadow-emerald-700/20 transition-all hover:scale-[1.02]"
             >
-              <MessageSquare className="w-4 h-4" />
+              <WhatsAppIcon className="w-4 h-4" />
               <span>Cotizar variante por WhatsApp</span>
             </a>
 

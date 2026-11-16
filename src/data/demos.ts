@@ -362,9 +362,11 @@ export const demosData: DemoItem[] = [
       'Muestra diseños de nail art, manicura rusa, pedicura spa y tratamientos faciales con sistema de reserva guiada.',
     fullDescription:
       'Plataforma visual pensada para nail bars, spas y cabinas de estética facial y corporal. Permite exhibir las últimas tendencias en polygel, acrílico, dipping y limpiezas faciales, facilitando que las usuarias seleccionen su servicio preferido.',
-    defaultPlanId: 'pequena',
+    defaultPlanId: 'basico',
     order: 4,
     accentColor: '#9333ea',
+    coverImage: '/images/demos/centrodeuna-preview.png',
+    mobileCoverImage: '/images/demos/centrodeuna-mobile.png',
     tags: ['uñas', 'nail bar', 'manicura', 'pedicura', 'estética', 'polygel', 'pestañas'],
     practicalBenefits: [
       'Disminuye el tiempo que tu personal dedica a enviar fotos de diseños por mensaje privado.',
@@ -378,7 +380,7 @@ export const demosData: DemoItem[] = [
     ],
     variants: createSectorVariants({
       basico: {
-        tagline: 'Página ágil con muestrario de acrílico, pedicura spa y reserva directa.',
+        tagline: 'Página ágil con muestrario de acrílico, pedicura spa y reserva directa (Aura Nails RD).',
         features: [
           'Menú visual de uñas acrílicas, gelish y pedicura',
           'Tiempos estimados y precios base',
@@ -386,6 +388,9 @@ export const demosData: DemoItem[] = [
         ],
         recommendedPages: ['Menú de Uñas', 'Galería Compacta', 'Citas WhatsApp'],
         status: 'disponible',
+        demoUrl: 'https://centrodeuna.asay2297.workers.dev',
+        coverImage: '/images/demos/centrodeuna-preview.png',
+        mobileCoverImage: '/images/demos/centrodeuna-mobile.png',
       },
       pequena: {
         tagline: 'Web completa de 5 a 8 páginas con lookbook de nail art y cabina estética.',
@@ -442,9 +447,11 @@ export const demosData: DemoItem[] = [
       'Transmite seguridad con diagnósticos por escáner, mecánica general, cambio de aceite y cotización rápida de reparaciones.',
     fullDescription:
       'Específica para talleres de mecánica preventiva y correctiva en República Dominicana. Permite desmitificar la experiencia del taller mostrando transparencia en los procesos, equipos de diagnóstico computarizado y garantía en repuestos y mano de obra.',
-    defaultPlanId: 'pequena',
+    defaultPlanId: 'basico',
     order: 5,
     accentColor: '#1e40af',
+    coverImage: '/images/demos/tallermecanico-preview.png',
+    mobileCoverImage: '/images/demos/tallermecanico-mobile.png',
     tags: ['taller mecánico', 'diagnóstico automotriz', 'cambio de aceite', 'frenos', 'suspensión', 'vehículos'],
     practicalBenefits: [
       'Vence la desconfianza natural del conductor mostrando instalaciones ordenadas y personal identificado.',
@@ -458,7 +465,7 @@ export const demosData: DemoItem[] = [
     ],
     variants: createSectorVariants({
       basico: {
-        tagline: 'Página ágil con servicios mecánicos principales y botón de auxilio vial.',
+        tagline: 'Página ágil con servicios mecánicos principales y botón de auxilio vial (Taller Mecánico RD).',
         features: [
           'Detalle de cambio de aceite, frenos y mantenimiento rápido',
           'Teléfono de urgencias para asistencia con grúa',
@@ -466,6 +473,9 @@ export const demosData: DemoItem[] = [
         ],
         recommendedPages: ['Servicios Esenciales', 'Ubicación del Taller', 'Cotizar Reparación'],
         status: 'disponible',
+        demoUrl: 'https://tallermecanico.asay2297.workers.dev',
+        coverImage: '/images/demos/tallermecanico-preview.png',
+        mobileCoverImage: '/images/demos/tallermecanico-mobile.png',
       },
       pequena: {
         tagline: 'Web completa de 5 a 8 páginas con diagnóstico computarizado y ficha de cotización.',
@@ -522,9 +532,11 @@ export const demosData: DemoItem[] = [
       'Muestra tus líneas de plomería, electricidad, pinturas y herramientas, con solicitud ágil de cotización al por mayor y detalle.',
     fullDescription:
       'Diseñada para ferreterías de barrio, centros ferreteros y distribuidoras de materiales de construcción. Permite a maestros constructores, ingenieros y propietarios residenciales solicitar listas de materiales por WhatsApp sin tener que trasladarse hasta el local.',
-    defaultPlanId: 'pequena',
+    defaultPlanId: 'basico',
     order: 6,
     accentColor: '#ea580c',
+    coverImage: '/images/demos/ferreterias-preview.png',
+    mobileCoverImage: '/images/demos/ferreterias-mobile.png',
     tags: ['ferretería', 'materiales de construcción', 'herramientas', 'pintura', 'plomería', 'cemento', 'flete'],
     practicalBenefits: [
       'Capta pedidos de obra grandes que se deciden por rapidez de cotización y despacho.',
@@ -538,7 +550,7 @@ export const demosData: DemoItem[] = [
     ],
     variants: createSectorVariants({
       basico: {
-        tagline: 'Página ágil con familias de productos principales y cotización por foto de lista.',
+        tagline: 'Página ágil con familias de productos principales y cotización por foto de lista (Ferretería El Constructor).',
         features: [
           'Presentación de departamentos: plomería, electricidad, pinturas y tornillería',
           'Horarios y número de WhatsApp para enviar listas de materiales',
@@ -546,6 +558,9 @@ export const demosData: DemoItem[] = [
         ],
         recommendedPages: ['Departamentos Principales', 'Marcas', 'Enviar Lista por WhatsApp'],
         status: 'disponible',
+        demoUrl: 'https://ferreterias.asay2297.workers.dev',
+        coverImage: '/images/demos/ferreterias-preview.png',
+        mobileCoverImage: '/images/demos/ferreterias-mobile.png',
       },
       pequena: {
         tagline: 'Web completa de 5 a 8 páginas con catálogo categorizado y servicio de flete a obra.',
@@ -602,9 +617,11 @@ export const demosData: DemoItem[] = [
       'Organiza repuestos nuevos y usados por marcas, facilita la consulta de piezas por foto y despachos a todo el país.',
     fullDescription:
       'Una solución enfocada en tiendas de repuestos para autos japoneses, coreanos y americanos. El cliente puede consultar rápidamente disponibilidad de piezas mecánicas, partes de carrocería y accesorios enviando el número de chasis (VIN) o una foto de la pieza por WhatsApp.',
-    defaultPlanId: 'pequena',
+    defaultPlanId: 'basico',
     order: 7,
     accentColor: '#3b82f6',
+    coverImage: '/images/demos/autorepuesto-preview.png',
+    mobileCoverImage: '/images/demos/autorepuesto-mobile.png',
     tags: ['repuestos', 'autopartes', 'chasis', 'talleres', 'vehículos', 'piezas', 'envíos nacionales'],
     practicalBenefits: [
       'Ahorra tiempo a tus vendedores al recibir solicitudes con marca, año y foto ya listos.',
@@ -618,7 +635,7 @@ export const demosData: DemoItem[] = [
     ],
     variants: createSectorVariants({
       basico: {
-        tagline: 'Página ágil con marcas atendidas y botón para consultar piezas por foto.',
+        tagline: 'Página ágil con marcas atendidas y botón para consultar piezas por foto (AutoRepuestos RD).',
         features: [
           'Marcas de vehículos atendidas (Toyota, Honda, Hyundai, Kia, Nissan)',
           'Botón de consulta rápida con número de chasis o foto de la muestra',
@@ -626,6 +643,9 @@ export const demosData: DemoItem[] = [
         ],
         recommendedPages: ['Marcas Principales', 'Políticas de Garantía', 'Consultar Pieza por WhatsApp'],
         status: 'disponible',
+        demoUrl: 'https://autorepuesto.asay2297.workers.dev',
+        coverImage: '/images/demos/autorepuesto-preview.png',
+        mobileCoverImage: '/images/demos/autorepuesto-mobile.png',
       },
       pequena: {
         tagline: 'Web completa de 5 a 8 páginas con catálogo de sistemas mecánicos y carrocería.',
@@ -685,6 +705,8 @@ export const demosData: DemoItem[] = [
     defaultPlanId: 'basico',
     order: 8,
     accentColor: '#d97706',
+    coverImage: '/images/demos/tecnicoselectricos-preview.png',
+    mobileCoverImage: '/images/demos/tecnicoselectricos-mobile.png',
     tags: ['electricista', 'cortocircuitos', 'energía solar', 'bombas de agua', 'cableado', 'emergencias eléctricas'],
     practicalBenefits: [
       'Da seguridad a familias de contratar a un profesional verificado para entrar a su hogar.',
@@ -698,7 +720,7 @@ export const demosData: DemoItem[] = [
     ],
     variants: createSectorVariants({
       basico: {
-        tagline: 'Página ágil con línea de emergencia para cortocircuitos y fallas eléctricas.',
+        tagline: 'Página ágil con línea de emergencia para cortocircuitos y fallas eléctricas (Voltio Pro).',
         features: [
           'Línea directa para atención de cortocircuitos y bajones de voltaje',
           'Servicios de instalación de breakers, cableado y lámparas',
@@ -706,6 +728,9 @@ export const demosData: DemoItem[] = [
         ],
         recommendedPages: ['Emergencias Eléctricas', 'Servicios Residenciales', 'Contacto'],
         status: 'disponible',
+        demoUrl: 'https://tecnicoselectricos.asay2297.workers.dev',
+        coverImage: '/images/demos/tecnicoselectricos-preview.png',
+        mobileCoverImage: '/images/demos/tecnicoselectricos-mobile.png',
       },
       pequena: {
         tagline: 'Web completa de 5 a 8 páginas con paneles solares, bombas de agua y balanceo de cargas.',
@@ -762,9 +787,11 @@ export const demosData: DemoItem[] = [
       'Destaca propiedades en venta y alquiler, proyectos en planos y facilita el contacto directo con cada asesor inmobiliario.',
     fullDescription:
       'Diseñada para agencias inmobiliarias y agentes independientes en República Dominicana. Muestra apartamentos en el Distrito Nacional, villas en Punta Cana, casas familiares y proyectos en preventa con fichas claras de características, fotos y botón para coordinar visitas.',
-    defaultPlanId: 'mediana',
+    defaultPlanId: 'basico',
     order: 9,
     accentColor: '#059669',
+    coverImage: '/images/demos/agentesinmobiliarios-preview.png',
+    mobileCoverImage: '/images/demos/agentesinmobiliarios-mobile.png',
     tags: ['bienes raíces', 'inmobiliaria', 'apartamentos', 'villas', 'punta cana', 'airbnb', 'inversión'],
     practicalBenefits: [
       'Genera confianza en compradores extranjeros y locales con una presentación de alta gama.',
@@ -778,14 +805,17 @@ export const demosData: DemoItem[] = [
     ],
     variants: createSectorVariants({
       basico: {
-        tagline: 'Landing ágil para agentes inmobiliarios independientes con inventario selecto.',
+        tagline: 'Landing ágil para agentes inmobiliarios independientes con inventario selecto (NovaHogar Inmobiliaria).',
         features: [
           'Fichas de propiedades destacadas con fotos y precios en USD / RD$',
           'Perfil profesional del agente con certificaciones',
           'Botón directo para agendar visitas por WhatsApp',
         ],
         recommendedPages: ['Propiedades Destacadas', 'Sobre el Agente', 'Contacto WhatsApp'],
-        status: 'proximamente',
+        status: 'disponible',
+        demoUrl: 'https://agentesinmobiliarios.asay2297.workers.dev',
+        coverImage: '/images/demos/agentesinmobiliarios-preview.png',
+        mobileCoverImage: '/images/demos/agentesinmobiliarios-mobile.png',
       },
       pequena: {
         tagline: 'Web completa de 5 a 8 páginas con filtro por zonas y proyectos en preventa.',
@@ -843,9 +873,11 @@ export const demosData: DemoItem[] = [
       'Promociona tus villas, apartamentos turísticos y cabañas para reservas directas sin comisiones elevadas de plataformas.',
     fullDescription:
       'Ideal para propietarios y administradores de propiedades vacacionales en Jarabacoa, Las Terrenas, Bayahíbe y Punta Cana. Permite mostrar amenidades (piscina, jacuzzi, vista, capacidad de huéspedes), normas de la casa y recibir solicitudes de fechas por WhatsApp para ahorrar comisiones.',
-    defaultPlanId: 'pequena',
+    defaultPlanId: 'basico',
     order: 10,
     accentColor: '#0891b2',
+    coverImage: '/images/demos/alojamientosturisticos-preview.png',
+    mobileCoverImage: '/images/demos/alojamientosturisticos-mobile.png',
     tags: ['airbnb', 'villas turísticas', 'alojamiento', 'jarabacoa', 'las terrenas', 'vacaciones', 'reservas'],
     practicalBenefits: [
       'Ahorra entre un 15% y 20% en comisiones de plataformas atrayendo reservas directas.',
@@ -859,7 +891,7 @@ export const demosData: DemoItem[] = [
     ],
     variants: createSectorVariants({
       basico: {
-        tagline: 'Página ágil para una villa o apartamento turístico para reservas directas.',
+        tagline: 'Página ágil para una villa o apartamento turístico para reservas directas (BrisaStay RD).',
         features: [
           'Galería fotográfica de piscina, habitaciones y áreas sociales',
           'Tarifas por noche y capacidad máxima de personas',
@@ -867,6 +899,9 @@ export const demosData: DemoItem[] = [
         ],
         recommendedPages: ['Fotos de la Propiedad', 'Amenidades y Tarifas', 'Consultar Fechas'],
         status: 'disponible',
+        demoUrl: 'https://alojamientosturisticos.asay2297.workers.dev',
+        coverImage: '/images/demos/alojamientosturisticos-preview.png',
+        mobileCoverImage: '/images/demos/alojamientosturisticos-mobile.png',
       },
       pequena: {
         tagline: 'Web completa de 5 a 8 páginas con guía turística local, amenidades y normas.',
@@ -923,9 +958,11 @@ export const demosData: DemoItem[] = [
       'Menú digital interactivo con fotos apetitosas, pedidos de delivery por WhatsApp y reserva de mesas para ocasiones especiales.',
     fullDescription:
       'Diseñada para restaurantes, cafeterías de especialidad, bistrós, pizzerías y pastelerías en República Dominicana. Convierte a comensales visuales en clientes con un menú digital rápido, legible en celulares, sin necesidad de descargar PDFs pesados, con botón para pedir a domicilio o reservar mesa.',
-    defaultPlanId: 'pequena',
+    defaultPlanId: 'basico',
     order: 11,
     accentColor: '#dc2626',
+    coverImage: '/images/demos/restaurantes-preview.png',
+    mobileCoverImage: '/images/demos/restaurantes-mobile.png',
     tags: ['restaurante', 'cafetería', 'menú digital', 'delivery', 'comida', 'gastronomía', 'reserva de mesas'],
     practicalBenefits: [
       'Evita que los clientes tengan que descargar molestos archivos PDF lentos en sus celulares.',
@@ -939,7 +976,7 @@ export const demosData: DemoItem[] = [
     ],
     variants: createSectorVariants({
       basico: {
-        tagline: 'Menú digital ágil para celulares sin descargar PDFs, ideal para delivery directo.',
+        tagline: 'Menú digital ágil para celulares sin descargar PDFs, ideal para delivery directo (Sabor de Patio).',
         features: [
           'Menú categorizado legible en celulares (Entradas, Platos Fuertes, Bebidas)',
           'Horarios de apertura, ubicación y mapa',
@@ -947,6 +984,9 @@ export const demosData: DemoItem[] = [
         ],
         recommendedPages: ['Menú Digital', 'Horarios y Ubicación', 'Pedir Delivery'],
         status: 'disponible',
+        demoUrl: 'https://restaurantes.asay2297.workers.dev',
+        coverImage: '/images/demos/restaurantes-preview.png',
+        mobileCoverImage: '/images/demos/restaurantes-mobile.png',
       },
       pequena: {
         tagline: 'Web completa de 5 a 8 páginas con fotos HD, armador de delivery y reserva de mesas.',
@@ -1003,9 +1043,11 @@ export const demosData: DemoItem[] = [
       'Ofrece traslados aeropuerto-hotel, alquiler de vehículos con chofer y paquetes de excursiones con cotización inmediata.',
     fullDescription:
       'Solución pensada para empresas de transporte privado, transfers desde aeropuertos (AILA, Punta Cana, Cibao) y agencias de tours. Permite a turistas extranjeros y viajeros corporativos solicitar traslados y tours guiados con tarifas claras y choferes certificados.',
-    defaultPlanId: 'pequena',
+    defaultPlanId: 'basico',
     order: 12,
     accentColor: '#0284c7',
+    coverImage: '/images/demos/transporteturisticos-preview.png',
+    mobileCoverImage: '/images/demos/transporteturisticos-mobile.png',
     tags: ['transporte turístico', 'transfers', 'aeropuerto', 'excursiones', 'saona', 'punta cana', 'chofer privado'],
     practicalBenefits: [
       'Capta turistas antes de que aterricen en el país ofreciendo reservas previas confiables.',
@@ -1019,14 +1061,17 @@ export const demosData: DemoItem[] = [
     ],
     variants: createSectorVariants({
       basico: {
-        tagline: 'Página ágil con traslados más comunes de aeropuertos a hoteles y reserva.',
+        tagline: 'Página ágil con traslados más comunes de aeropuertos a hoteles y reserva (Caribe Transfer & Tours).',
         features: [
           'Tarifario de rutas frecuentes de aeropuertos dominicanos',
           'Fotos de la flotilla de camionetas y vans',
           'Botón de reserva directa por WhatsApp con número de vuelo',
         ],
         recommendedPages: ['Rutas Principales', 'Flotilla', 'Reservar Transfer'],
-        status: 'proximamente',
+        status: 'disponible',
+        demoUrl: 'https://transporteturisticos.asay2297.workers.dev',
+        coverImage: '/images/demos/transporteturisticos-preview.png',
+        mobileCoverImage: '/images/demos/transporteturisticos-mobile.png',
       },
       pequena: {
         tagline: 'Web completa de 5 a 8 páginas con catálogo de excursiones y cotizador de rutas.',

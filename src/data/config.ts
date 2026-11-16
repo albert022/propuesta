@@ -8,11 +8,9 @@ export const siteConfig: SiteConfig = {
   country: 'República Dominicana',
   currency: 'RD$',
   // Número centralizado de WhatsApp para República Dominicana (sin caracteres especiales para wa.me)
-  whatsappNumber: '18095551234',
-  whatsappDisplay: '+1 (809) 555-1234',
-  email: 'contacto@qrmoon.do',
-  hours: 'Lunes a Viernes: 8:30 AM – 6:00 PM (Hora de Santo Domingo)',
-  location: 'Santo Domingo, República Dominicana',
+  whatsappNumber: '18294994321',
+  whatsappDisplay: '+1 829 499 4321',
+  email: 'info@qrmoon.com',
   socials: {
     instagram: 'https://instagram.com/qrmoon.do',
     tiktok: 'https://tiktok.com/@qrmoon.do',

@@ -1,11 +1,9 @@
 import { Metadata } from 'next';
 import { ContactFormInteractive } from '@/components/contact/ContactFormInteractive';
 import { siteConfig, getWhatsAppUrl } from '@/data/config';
+import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
 import {
-  MessageSquare,
   Mail,
-  MapPin,
-  Clock,
   Sparkles,
   ShieldCheck,
   CheckCircle2,
@@ -45,7 +43,7 @@ export default function ContactoPage() {
             {/* Direct WhatsApp Callout Card */}
             <div className="bg-emerald-600 rounded-3xl p-6 sm:p-8 text-white shadow-xl shadow-emerald-950/20 space-y-4">
               <div className="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                <MessageSquare className="w-6 h-6 text-white" />
+                <WhatsAppIcon className="w-6 h-6 text-white" />
               </div>
 
               <div className="space-y-1">
@@ -67,7 +65,7 @@ export default function ContactoPage() {
                   rel="noopener noreferrer"
                   className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-white text-emerald-800 font-extrabold text-sm hover:bg-emerald-50 transition-colors shadow-sm"
                 >
-                  <MessageSquare className="w-4 h-4 text-emerald-700" />
+                  <WhatsAppIcon className="w-4 h-4 text-emerald-700" />
                   <span>Escribir al {siteConfig.whatsappDisplay}</span>
                 </a>
               </div>
@@ -78,26 +76,6 @@ export default function ContactoPage() {
               <h4 className="font-bold text-slate-900 text-base">Datos de contacto y atención</h4>
 
               <div className="space-y-4 text-xs sm:text-sm text-slate-600">
-                <div className="flex items-start gap-3">
-                  <div className="p-2 rounded-xl bg-blue-50 text-blue-700 shrink-0">
-                    <MapPin className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <span className="font-bold text-slate-900 block">Ubicación:</span>
-                    <span>{siteConfig.location}</span>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <div className="p-2 rounded-xl bg-blue-50 text-blue-700 shrink-0">
-                    <Clock className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <span className="font-bold text-slate-900 block">Horario de atención:</span>
-                    <span>{siteConfig.hours}</span>
-                  </div>
-                </div>
-
                 <div className="flex items-start gap-3">
                   <div className="p-2 rounded-xl bg-blue-50 text-blue-700 shrink-0">
                     <Mail className="w-4 h-4" />

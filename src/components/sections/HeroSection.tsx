@@ -2,9 +2,9 @@ import React from 'react';
 import Link from 'next/link';
 import { HeroCompositionVisual } from './HeroCompositionVisual';
 import { getWhatsAppUrl } from '@/data/config';
+import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
 import {
   ArrowRight,
-  MessageSquare,
   Smartphone,
   Zap,
 } from 'lucide-react';
@@ -60,7 +60,7 @@ export const HeroSection: React.FC = () => {
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-bold text-sm sm:text-base border border-slate-300 shadow-xs hover:border-slate-400 transition-all hover:scale-[1.02] active:scale-[0.98]"
               >
-                <MessageSquare className="w-4 h-4 text-emerald-600" />
+                <WhatsAppIcon className="w-4 h-4 text-emerald-600" />
                 <span>Hablar con un asesor</span>
               </a>
             </div>
@@ -76,7 +76,7 @@ export const HeroSection: React.FC = () => {
 
               <div className="flex items-center justify-center lg:justify-start gap-2 text-xs font-semibold text-slate-700">
                 <div className="p-1 rounded-md bg-emerald-100 text-emerald-700">
-                  <MessageSquare className="w-3.5 h-3.5" />
+                  <WhatsAppIcon className="w-3.5 h-3.5" />
                 </div>
                 <span>Integración con WhatsApp</span>
               </div>

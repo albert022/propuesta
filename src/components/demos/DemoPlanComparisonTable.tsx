@@ -1,7 +1,8 @@
 import React from 'react';
 import { DemoItem, PlanId } from '@/types';
 import { getWhatsAppUrl } from '@/data/config';
-import { Check, MessageSquare, Sparkles, Clock, ExternalLink } from 'lucide-react';
+import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
+import { Check, Sparkles, Clock, ExternalLink } from 'lucide-react';
 
 interface DemoPlanComparisonTableProps {
   demo: DemoItem;
@@ -268,7 +269,7 @@ export const DemoPlanComparisonTable: React.FC<DemoPlanComparisonTableProps> = (
                           : 'bg-emerald-600 hover:bg-emerald-500 text-white'
                       }`}
                     >
-                      <MessageSquare className="w-3.5 h-3.5" />
+                      <WhatsAppIcon className="w-3.5 h-3.5" />
                       <span>Cotizar {pId === 'pequena' ? 'Pequeña' : pId === 'basico' ? 'Básico' : 'Mediana'}</span>
                     </a>
                   </td>

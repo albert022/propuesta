@@ -3,7 +3,8 @@
 import React, { useState } from 'react';
 import { getWhatsAppUrl, siteConfig } from '@/data/config';
 import { categoryGroups } from '@/data/categories';
-import { MessageSquare, CheckCircle2 } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
+import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
 
 export const ContactFormInteractive: React.FC = () => {
   const [businessName, setBusinessName] = useState('');
@@ -85,7 +86,7 @@ export const ContactFormInteractive: React.FC = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-md"
             >
-              <MessageSquare className="w-4 h-4" />
+              <WhatsAppIcon className="w-4 h-4" />
               <span>Abrir WhatsApp ahora</span>
             </a>
           </div>
@@ -259,7 +260,7 @@ export const ContactFormInteractive: React.FC = () => {
               type="submit"
               className="w-full flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-base shadow-lg shadow-emerald-600/20 hover:scale-[1.01] active:scale-[0.99] transition-all"
             >
-              <MessageSquare className="w-5 h-5" />
+              <WhatsAppIcon className="w-5 h-5" />
               <span>Enviar solicitud por WhatsApp con resumen</span>
             </button>
 

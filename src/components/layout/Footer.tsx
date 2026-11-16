@@ -3,11 +3,9 @@ import Link from 'next/link';
 import { siteConfig, getWhatsAppUrl } from '@/data/config';
 import { CurrentYear } from '@/components/ui/CurrentYear';
 import { QrmoonLogo } from '@/components/ui/QrmoonLogo';
+import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
 import {
-  MessageSquare,
   Mail,
-  MapPin,
-  Clock,
   ArrowUpRight,
   Shield,
 } from 'lucide-react';
@@ -32,17 +30,6 @@ export const Footer: React.FC = () => {
               Impulsamos a profesionales independientes, negocios locales y empresas en República
               Dominicana con presencia web moderna, integración de WhatsApp y herramientas de digitalización.
             </p>
-
-            <div className="pt-2 flex flex-col space-y-2 text-xs text-slate-400">
-              <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-blue-400 shrink-0" />
-                <span>{siteConfig.location}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-blue-400 shrink-0" />
-                <span>{siteConfig.hours}</span>
-              </div>
-            </div>
           </div>
 
           {/* Quick links to Demos */}
@@ -154,7 +141,7 @@ export const Footer: React.FC = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs transition-colors w-full justify-center shadow-sm"
               >
-                <MessageSquare className="w-4 h-4" />
+                <WhatsAppIcon className="w-4 h-4" />
                 <span>WhatsApp: {siteConfig.whatsappDisplay}</span>
               </a>
 
@@ -165,10 +152,6 @@ export const Footer: React.FC = () => {
                 <Mail className="w-4 h-4 text-blue-400" />
                 <span>{siteConfig.email}</span>
               </a>
-
-              <p className="text-[11px] text-slate-400 leading-tight pt-1">
-                Respuestas comerciales en horario laboral dominicano.
-              </p>
             </div>
           </div>
         </div>
@@ -189,7 +172,7 @@ export const Footer: React.FC = () => {
         {/* Bottom copyright & notes */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
           <p>
-            © <CurrentYear /> {siteConfig.name} — Todos los derechos reservados. Santo Domingo, República Dominicana.
+            © <CurrentYear /> {siteConfig.name} — Todos los derechos reservados.
           </p>
           <div className="flex items-center space-x-6 text-slate-400">
             <Link href="/contacto" className="hover:text-slate-300 transition-colors">

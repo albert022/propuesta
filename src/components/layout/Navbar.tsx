@@ -3,9 +3,10 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, MessageSquare } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { getWhatsAppUrl } from '@/data/config';
 import { QrmoonLogo } from '@/components/ui/QrmoonLogo';
+import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -86,7 +87,7 @@ export const Navbar: React.FC = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-blue-700 hover:bg-blue-800 text-white font-semibold text-sm shadow-sm hover:shadow-md transition-all hover:scale-[1.02] active:scale-[0.98]"
             >
-              <MessageSquare className="w-4 h-4 text-sky-200" />
+              <WhatsAppIcon className="w-4 h-4 text-sky-200" />
               <span>Solicitar cotización</span>
             </a>
           </div>
@@ -100,7 +101,7 @@ export const Navbar: React.FC = () => {
               aria-label="Contactar por WhatsApp"
               className="p-2 rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-200 sm:hidden"
             >
-              <MessageSquare className="w-5 h-5" />
+              <WhatsAppIcon className="w-5 h-5" />
             </a>
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -149,7 +150,7 @@ export const Navbar: React.FC = () => {
                 onClick={() => setIsOpen(false)}
                 className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-blue-700 hover:bg-blue-800 text-white font-semibold text-base shadow-sm"
               >
-                <MessageSquare className="w-5 h-5" />
+                <WhatsAppIcon className="w-5 h-5" />
                 <span>Solicitar cotización por WhatsApp</span>
               </a>
             </div>

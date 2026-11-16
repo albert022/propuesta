@@ -1,7 +1,8 @@
 import React from 'react';
 import { plansData, pricingClarifications } from '@/data/plans';
 import { getWhatsAppUrl } from '@/data/config';
-import { Check, Info, Sparkles, MessageSquare, ShieldAlert } from 'lucide-react';
+import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
+import { Check, Info, Sparkles, ShieldAlert } from 'lucide-react';
 
 interface PricingTableProps {
   showTitle?: boolean;
@@ -138,7 +139,7 @@ export const PricingTable: React.FC<PricingTableProps> = ({ showTitle = true }) 
                         : 'bg-slate-900 hover:bg-slate-800 text-white hover:scale-[1.01]'
                     }`}
                   >
-                    <MessageSquare className="w-4 h-4" />
+                    <WhatsAppIcon className="w-4 h-4" />
                     <span>Consultar este plan por WhatsApp</span>
                   </a>
 

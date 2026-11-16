@@ -1,7 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import { getWhatsAppUrl } from '@/data/config';
-import { MessageSquare, ArrowRight, Sparkles } from 'lucide-react';
+import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
+import { ArrowRight, Sparkles } from 'lucide-react';
 
 export const FinalCta: React.FC = () => {
   return (
@@ -32,7 +33,7 @@ export const FinalCta: React.FC = () => {
             rel="noopener noreferrer"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-white font-extrabold text-base shadow-xl shadow-emerald-950/30 hover:scale-105 active:scale-95 transition-all"
           >
-            <MessageSquare className="w-5 h-5" />
+            <WhatsAppIcon className="w-5 h-5" />
             <span>Solicitar cotización por WhatsApp</span>
           </a>
 

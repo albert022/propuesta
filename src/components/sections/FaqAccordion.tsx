@@ -2,8 +2,9 @@
 
 import React, { useState } from 'react';
 import { faqsData } from '@/data/faqs';
-import { ChevronDown, MessageSquare } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { getWhatsAppUrl } from '@/data/config';
+import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
 
 export const FaqAccordion: React.FC = () => {
   const [openId, setOpenId] = useState<string | null>(faqsData[0]?.id || null);
@@ -78,7 +79,7 @@ export const FaqAccordion: React.FC = () => {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs transition-colors shadow-sm"
           >
-            <MessageSquare className="w-4 h-4" />
+            <WhatsAppIcon className="w-4 h-4" />
             <span>Consultar directamente por WhatsApp</span>
           </a>
         </div>

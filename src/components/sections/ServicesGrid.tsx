@@ -1,9 +1,9 @@
 import React from 'react';
 import { servicesData } from '@/data/services';
 import { getWhatsAppUrl } from '@/data/config';
+import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
 import {
   Globe,
-  MessageSquare,
   Bot,
   Star,
   QrCode,
@@ -27,7 +27,7 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ showTitle = true, li
       case 'desarrollo-web':
         return <Globe className="w-6 h-6 text-blue-600" />;
       case 'whatsapp-negocios':
-        return <MessageSquare className="w-6 h-6 text-emerald-600" />;
+        return <WhatsAppIcon className="w-6 h-6 text-emerald-600" />;
       case 'chatbots':
         return <Bot className="w-6 h-6 text-indigo-600" />;
       case 'google-reviews':

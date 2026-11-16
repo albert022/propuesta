@@ -106,8 +106,8 @@ export interface SiteConfig {
   whatsappNumber: string;
   whatsappDisplay: string;
   email: string;
-  hours: string;
-  location: string;
+  hours?: string;
+  location?: string;
   socials: {
     instagram?: string;
     tiktok?: string;
